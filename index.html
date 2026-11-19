@@ -7,80 +7,84 @@
 <meta name="description" content="Personal academic portfolio of Naisha Malik: economics, mathematics, public policy and human behaviour.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          serif: ['"Libre Baskerville"', 'Georgia', 'serif'],
-          sans: ['Inter', 'system-ui', 'sans-serif']
-        },
-        colors: {
-          paper: '#F6F3EC',
-          ink: '#26282B',
-          slate2: '#3B4A66',
-          muted: '#6B6F76',
-          rule: '#D9D4C7'
-        }
-      }
-    }
-  };
+  tailwind.config = { theme: { extend: {
+    fontFamily: { serif: ['Newsreader', 'Georgia', 'serif'], sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
+    colors: { linen: '#F7F3EB', ivory: '#FFFDF9', forest: '#1D2926', sage: '#556B5E', terra: '#C46B48', body: '#3A4642', rule: '#DDD5C4' }
+  } } };
 </script>
 <style>
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-  }
-  body { background: #F6F3EC; color: #26282B; }
-  :focus-visible { outline: 2px solid #3B4A66; outline-offset: 3px; }
-  .link-line { background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px; background-position: 0 100%; background-repeat: no-repeat; }
-  .link-line:hover { color: #3B4A66; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+  body { background: #F7F3EB; color: #3A4642; }
+  :focus-visible { outline: 2px solid #C46B48; outline-offset: 3px; }
+  h1, h2, h3 { color: #1D2926; }
 
-  /* Article reader typography */
-  .prose-article { font-size: 1.0625rem; line-height: 1.85; color: #26282B; }
+  /* Hero: fine dot grid texture + double rules like a newspaper masthead */
+  .dot-grid { background-image: radial-gradient(rgba(85,107,94,.22) 1px, transparent 1.2px); background-size: 20px 20px; }
+  .double-rule { border-top: 3px double #1D2926; }
+  .double-rule-bottom { border-bottom: 3px double #1D2926; }
+  .shadow-soft { box-shadow: 0 1px 2px rgba(29,41,38,.06), 0 6px 18px rgba(29,41,38,.06); }
+
+  .link-line { background-image: linear-gradient(#C46B48, #C46B48); background-size: 100% 2px; background-position: 0 100%; background-repeat: no-repeat; }
+  .link-line:hover { color: #C46B48; }
+
+  /* Article cards: coloured strip + geometric banner + glow on hover */
+  .card { background: #FFFDF9; border: 1px solid #DDD5C4; border-top: 5px solid var(--c); transition: box-shadow .25s, border-color .25s, transform .25s; }
+  .card:hover, .card:focus-within { border-color: var(--c); box-shadow: 0 0 0 1px var(--c), 0 10px 28px rgba(196,107,72,.2); transform: translateY(-2px); }
+  .card-banner { height: 46px; display: flex; align-items: center; padding: 0 1.5rem; color: #1D2926; font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+    background-color: color-mix(in srgb, var(--c) 14%, #FFFDF9);
+    background-image: repeating-linear-gradient(135deg, color-mix(in srgb, var(--c) 22%, transparent) 0 2px, transparent 2px 12px); }
+  .abstract { border-left: 3px solid var(--c); background: color-mix(in srgb, var(--c) 8%, #FFFDF9); }
+
+  .empty-state { background-color: #FFFDF9; border: 1px dashed #B9AE97; background-image: repeating-linear-gradient(45deg, rgba(85,107,94,.06) 0 1px, transparent 1px 14px); }
+
+  /* Reader typography */
+  .prose-article { font-size: 1.0625rem; line-height: 1.85; color: #3A4642; }
   .prose-article p { margin: 0 0 1.4em; }
-  .prose-article h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.5rem; line-height: 1.35; margin: 2.2em 0 .7em; color: #1d2230; }
-  .prose-article h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.2rem; line-height: 1.4; margin: 1.9em 0 .6em; color: #1d2230; }
+  .prose-article h2 { font-family: Newsreader, Georgia, serif; font-size: 1.65rem; line-height: 1.3; margin: 2.2em 0 .7em; }
+  .prose-article h3 { font-family: Newsreader, Georgia, serif; font-size: 1.3rem; margin: 1.9em 0 .6em; }
   .prose-article ul, .prose-article ol { margin: 0 0 1.4em 1.4em; padding: 0; }
-  .prose-article ul { list-style: disc; }
-  .prose-article ol { list-style: decimal; }
+  .prose-article ul { list-style: disc; } .prose-article ol { list-style: decimal; }
   .prose-article li { margin-bottom: .45em; padding-left: .2em; }
-  .prose-article blockquote { margin: 1.8em 0; padding: .2em 0 .2em 1.4em; border-left: 2px solid #3B4A66; font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; color: #3B4A66; }
-  .prose-article a { color: #3B4A66; text-decoration: underline; text-underline-offset: 3px; }
-  .prose-article a:hover { color: #1d2230; }
+  .prose-article blockquote { margin: 1.8em 0; padding: .4em 0 .4em 1.4em; border-left: 3px solid #C46B48; font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 1.2rem; color: #1D2926; }
+  .prose-article a { color: #556B5E; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #C46B48; }
+  .prose-article a:hover { color: #C46B48; }
   .prose-article img { max-width: 100%; height: auto; margin: 1.6em 0; }
-  .prose-article table { width: 100%; border-collapse: collapse; margin: 1.6em 0; font-size: .95rem; }
-  .prose-article th, .prose-article td { border-bottom: 1px solid #D9D4C7; padding: .5em .6em; text-align: left; }
+  .prose-article th, .prose-article td { border-bottom: 1px solid #DDD5C4; padding: .5em .6em; text-align: left; }
+  .prose-article table { width: 100%; border-collapse: collapse; margin: 1.6em 0; }
 </style>
 </head>
 
 <body class="font-sans antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-forest focus:text-linen focus:px-4 focus:py-2">Skip to content</a>
 
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-ink focus:text-paper focus:px-4 focus:py-2">Skip to content</a>
+<!-- ============ ANNOUNCEMENT BANNER (edit the sentence below any time) ============ -->
+<div class="bg-sage text-linen text-center text-xs sm:text-sm px-4 py-2.5 tracking-wide">
+  <span class="font-serif italic text-base mr-2">Current Research Focus</span>
+  <span class="hidden sm:inline opacity-60">|</span>
+  <span class="block sm:inline sm:ml-2">Behavioural economics, public policy &amp; quantitative methods</span>
+</div>
 
 <!-- ============ NAVIGATION ============ -->
-<header class="sticky top-0 z-40 bg-paper/95 backdrop-blur border-b border-rule">
+<header class="sticky top-0 z-40 bg-linen/95 backdrop-blur border-b border-rule">
   <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
-    <a href="#top" class="font-serif text-base tracking-tight">Naisha Malik</a>
-
-    <ul class="hidden md:flex items-center gap-9 text-sm text-muted">
-      <li><a class="hover:text-ink transition-colors" href="#about">About</a></li>
-      <li><a class="hover:text-ink transition-colors" href="#interests">Research Interests</a></li>
-      <li><a class="hover:text-ink transition-colors" href="#writing">Research &amp; Writing</a></li>
-      <li><a class="hover:text-ink transition-colors" href="#contact">Contact</a></li>
+    <a href="#top" class="font-serif text-xl font-semibold text-forest">Naisha Malik</a>
+    <ul class="hidden md:flex items-center gap-9 text-sm font-medium text-body">
+      <li><a class="hover:text-terra transition-colors" href="#about">About</a></li>
+      <li><a class="hover:text-terra transition-colors" href="#interests">Research Interests</a></li>
+      <li><a class="hover:text-terra transition-colors" href="#writing">Research &amp; Writing</a></li>
+      <li><a class="hover:text-terra transition-colors" href="#contact">Contact</a></li>
     </ul>
-
     <button id="menu-button" class="md:hidden -mr-2 p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-      <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-      <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </nav>
-
-  <div id="mobile-menu" class="hidden md:hidden border-t border-rule bg-paper">
-    <ul class="max-w-5xl mx-auto px-6 py-4 text-base">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-rule bg-linen">
+    <ul class="max-w-5xl mx-auto px-6 py-3">
       <li><a class="mobile-link block py-3 border-b border-rule" href="#about">About</a></li>
       <li><a class="mobile-link block py-3 border-b border-rule" href="#interests">Research Interests</a></li>
       <li><a class="mobile-link block py-3 border-b border-rule" href="#writing">Research &amp; Writing</a></li>
@@ -91,21 +95,31 @@
 
 <main id="main">
 
-<!-- ============ HERO ============ -->
-<section id="top" class="max-w-5xl mx-auto px-6 pt-24 pb-28 md:pt-36 md:pb-40">
-  <p class="text-xs tracking-[0.22em] text-muted mb-8">ECONOMICS · RESEARCH · WRITING</p>
-  <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl leading-[1.04] tracking-tight text-ink">Naisha<br>Malik</h1>
-  <p class="mt-10 max-w-xl font-serif text-lg md:text-xl leading-relaxed text-slate2">
-    Exploring economics, mathematics, public policy, and human behaviour through research and writing.
-  </p>
-  <a href="#writing" class="link-line inline-block mt-10 pb-1 text-sm font-medium text-ink">Read the writing</a>
+<!-- ============ HERO / MASTHEAD ============ -->
+<section id="top" class="max-w-5xl mx-auto px-4 sm:px-6 pt-10 md:pt-14">
+  <div class="double-rule double-rule-bottom bg-ivory dot-grid shadow-soft px-6 sm:px-12 py-14 md:py-20 text-center">
+    <p class="text-xs font-semibold tracking-[0.25em] text-sage">ECONOMICS · RESEARCH · WRITING</p>
+    <h1 class="mt-6 font-serif font-medium text-5xl sm:text-7xl md:text-8xl leading-[1.02] tracking-tight">Naisha Malik</h1>
+    <div class="mx-auto my-8 w-24 border-t-2 border-terra"></div>
+    <p class="mx-auto max-w-xl font-serif italic text-xl md:text-2xl leading-relaxed text-body">
+      Exploring economics, mathematics, public policy, and human behaviour through research and writing.
+    </p>
+    <a href="#writing" class="link-line inline-block mt-9 pb-1 text-sm font-semibold text-forest">Read the writing</a>
+  </div>
+  <!-- Interests pill bar -->
+  <ul class="mt-6 flex flex-wrap justify-center gap-2" aria-label="Research interests">
+    <li class="pill">Behavioural Economics</li><li class="pill">Development Economics</li><li class="pill">Public Policy</li><li class="pill">Econometrics</li>
+    <li class="pill">Economic Inequality</li><li class="pill">Political Economy</li><li class="pill">Quantitative Methods</li><li class="pill">Economics of Education</li>
+  </ul>
 </section>
+<style>.pill { font-size: .75rem; font-weight: 500; padding: .35rem .9rem; border-radius: 999px; color: #556B5E; background: #FFFDF9; border: 1px solid #B8C6BC; }</style>
 
 <!-- ============ ABOUT ============ -->
-<section id="about" class="border-t border-rule">
-  <div class="max-w-5xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-12 gap-8 md:gap-12">
-    <h2 class="md:col-span-4 font-serif text-2xl md:text-3xl text-ink">About</h2>
-    <div class="md:col-span-7 space-y-5 text-[1.0625rem] leading-[1.85] text-ink/90">
+<section id="about" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
+  <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+    <h2 class="md:col-span-4 font-serif font-medium text-3xl md:text-4xl">About
+      <span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
+    <div class="md:col-span-8 space-y-5 text-[1.0625rem] leading-[1.85]">
       <p>I'm a student with a growing interest in economics and the way it explains, and sometimes fails to explain, the choices people make. Mathematics is part of what draws me in: I like questions that can be reasoned about carefully and tested against evidence.</p>
       <p>I'm especially curious about public policy and behavioural economics, and about how ideas from theory hold up when they meet real communities and real constraints. I use this site to think through those questions in writing, and to share what I'm reading and learning as I go.</p>
     </div>
@@ -113,87 +127,75 @@
 </section>
 
 <!-- ============ RESEARCH INTERESTS ============ -->
-<section id="interests" class="border-t border-rule">
+<section id="interests" class="border-y border-rule bg-ivory">
   <div class="max-w-5xl mx-auto px-6 py-20 md:py-28">
-    <h2 class="font-serif text-2xl md:text-3xl text-ink mb-12 md:mb-16">Research Interests</h2>
-    <dl class="grid md:grid-cols-2 gap-x-16">
-      <div class="py-6 border-t border-rule"><dt class="font-serif text-lg text-ink">Behavioural Economics</dt><dd class="mt-2 text-sm leading-relaxed text-muted">How psychology shapes the decisions people actually make.</dd></div>
-      <div class="py-6 border-t border-rule"><dt class="font-serif text-lg text-ink">Development Economics</dt><dd class="mt-2 text-sm leading-relaxed text-muted">What helps people and economies move out of poverty.</dd></div>
-      <div class="py-6 border-t border-rule"><dt class="font-serif text-lg text-ink">Public Policy</dt><dd class="mt-2 text-sm leading-relaxed text-muted">Weighing the real effects of the policies that govern daily life.</dd></div>
-      <div class="py-6 border-t border-rule"><dt class="font-serif text-lg text-ink">Econometrics</dt><dd class="mt-2 text-sm leading-relaxed text-muted">Learning to draw careful conclusions from economic data.</dd></div>
-      <div class="py-6 border-t border-rule"><dt class="font-serif text-lg text-ink">Economic Inequality</dt><dd class="mt-2 text-sm leading-relaxed text-muted">Why resources and opportunities are distributed as they are.</dd></div>
-      <div class="py-6 border-t border-rule"><dt class="font-serif text-lg text-ink">Political Economy</dt><dd class="mt-2 text-sm leading-relaxed text-muted">How institutions and incentives shape economic outcomes.</dd></div>
-      <div class="py-6 border-t border-rule md:border-b-0"><dt class="font-serif text-lg text-ink">Quantitative Methods</dt><dd class="mt-2 text-sm leading-relaxed text-muted">The mathematical and statistical tools behind good analysis.</dd></div>
-      <div class="py-6 border-t border-rule"><dt class="font-serif text-lg text-ink">Economics of Education</dt><dd class="mt-2 text-sm leading-relaxed text-muted">How schooling affects opportunity and later life outcomes.</dd></div>
+    <h2 class="font-serif font-medium text-3xl md:text-4xl">Research Interests
+      <span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
+    <dl class="mt-12 grid sm:grid-cols-2 gap-5">
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Behavioural Economics</dt><dd class="mt-1 text-sm leading-relaxed">How psychology shapes the decisions people actually make.</dd></div>
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Development Economics</dt><dd class="mt-1 text-sm leading-relaxed">What helps people and economies move out of poverty.</dd></div>
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Public Policy</dt><dd class="mt-1 text-sm leading-relaxed">Weighing the real effects of the policies that govern daily life.</dd></div>
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Econometrics</dt><dd class="mt-1 text-sm leading-relaxed">Learning to draw careful conclusions from economic data.</dd></div>
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Economic Inequality</dt><dd class="mt-1 text-sm leading-relaxed">Why resources and opportunities are distributed as they are.</dd></div>
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Political Economy</dt><dd class="mt-1 text-sm leading-relaxed">How institutions and incentives shape economic outcomes.</dd></div>
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Quantitative Methods</dt><dd class="mt-1 text-sm leading-relaxed">The mathematical and statistical tools behind good analysis.</dd></div>
+      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Economics of Education</dt><dd class="mt-1 text-sm leading-relaxed">How schooling affects opportunity and later life outcomes.</dd></div>
     </dl>
   </div>
 </section>
 
 <!-- ============ RESEARCH & WRITING ============ -->
-<section id="writing" class="border-t border-rule">
-  <div class="max-w-5xl mx-auto px-6 py-20 md:py-28">
-    <h2 class="font-serif text-2xl md:text-3xl text-ink">Research &amp; Writing</h2>
-
-    <!-- Category filters (generated by JavaScript) -->
-    <div id="filters" class="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-b border-rule pb-4" role="group" aria-label="Filter writing by category"></div>
-
-    <!-- Article cards or the "coming soon" message (generated by JavaScript) -->
-    <div id="article-list" class="mt-2" aria-live="polite"></div>
-  </div>
+<section id="writing" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
+  <h2 class="font-serif font-medium text-3xl md:text-4xl">Research &amp; Writing
+    <span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
+  <div id="filters" class="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter writing by category"></div>
+  <div id="article-list" class="mt-8" aria-live="polite"></div>
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="contact" class="border-t border-rule">
-  <div class="max-w-5xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-12 gap-8 md:gap-12">
-    <h2 class="md:col-span-4 font-serif text-2xl md:text-3xl text-ink">Contact</h2>
-    <div class="md:col-span-7">
-      <p class="text-[1.0625rem] leading-[1.85] text-ink/90">For questions, conversations, or collaborations, feel free to reach out.</p>
-      <a href="mailto:naishamalik01@gmail.com" class="link-line inline-block mt-6 pb-1 font-serif text-xl md:text-2xl text-slate2 break-all">naishamalik01@gmail.com</a>
-    </div>
+<section id="contact" class="max-w-5xl mx-auto px-6 pb-20 md:pb-28">
+  <div class="bg-forest text-linen shadow-soft px-8 sm:px-14 py-14 md:py-16 text-center border-t-[5px] border-terra">
+    <h2 class="font-serif font-medium text-3xl md:text-4xl !text-linen">Get in Touch for Research Inquiries</h2>
+    <p class="mt-4 mx-auto max-w-lg leading-relaxed text-linen/85">For questions, conversations, or collaborations, feel free to reach out.</p>
+    <a href="mailto:naishamalik01@gmail.com" class="inline-block mt-8 bg-linen text-forest font-semibold text-sm px-7 py-3.5 hover:bg-terra hover:text-ivory transition-colors break-all">naishamalik01@gmail.com</a>
   </div>
 </section>
-
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="border-t border-rule">
-  <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted">
-    <p><span class="font-serif text-ink">Naisha Malik</span> &nbsp;·&nbsp; Economics · Research · Writing</p>
+<footer class="double-rule bg-ivory">
+  <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs">
+    <p><span class="font-serif text-base font-semibold text-forest">Naisha Malik</span> &nbsp;·&nbsp; Economics · Research · Writing</p>
     <p>&copy; <span id="year"></span></p>
   </div>
 </footer>
 
 <!-- ============ ARTICLE READER ============ -->
-<div id="reader" class="hidden fixed inset-0 z-50 bg-paper overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="reader-title" tabindex="-1">
-  <div class="sticky top-0 z-10 bg-paper/95 backdrop-blur border-b border-rule">
+<div id="reader" class="hidden fixed inset-0 z-50 bg-linen overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="reader-title" tabindex="-1">
+  <div class="sticky top-0 z-10 bg-linen/95 backdrop-blur border-b border-rule">
     <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
-      <button id="reader-back" class="text-sm text-muted hover:text-ink flex items-center gap-2">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-        Back to all writing
-      </button>
-      <button id="reader-close" class="p-2 -mr-2 text-muted hover:text-ink" aria-label="Close article">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
+      <button id="reader-back" class="text-sm font-medium hover:text-terra flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back to all writing</button>
+      <button id="reader-close" class="p-2 -mr-2 hover:text-terra" aria-label="Close article">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
   <article class="max-w-2xl mx-auto px-6 pt-14 pb-28">
-    <p id="reader-meta" class="text-sm text-muted"></p>
-    <h2 id="reader-title" class="mt-4 font-serif text-3xl md:text-5xl leading-tight text-ink"></h2>
-    <ul id="reader-tags" class="mt-6 flex flex-wrap gap-2 text-xs text-slate2"></ul>
-    <hr class="my-10 border-rule">
+    <p id="reader-meta" class="text-sm font-medium text-sage"></p>
+    <h2 id="reader-title" class="mt-4 font-serif font-medium text-4xl md:text-5xl leading-tight"></h2>
+    <ul id="reader-tags" class="mt-6 flex flex-wrap gap-2 text-xs text-sage"></ul>
+    <div class="my-10 double-rule"></div>
     <div id="reader-content" class="prose-article"></div>
-    <hr class="mt-16 mb-8 border-rule">
-    <button id="reader-back-bottom" class="link-line pb-1 text-sm font-medium">Back to all writing</button>
+    <div class="mt-16 mb-8 double-rule"></div>
+    <button id="reader-back-bottom" class="link-line pb-1 text-sm font-semibold text-forest">Back to all writing</button>
   </article>
 </div>
-
 
 <script>
 /* =====================================================================
    HOW TO PUBLISH A NEW ARTICLE  (read this first!)
    =====================================================================
    You only ever need to edit the list called "articles" below.
-   Nothing else in this file needs to change.
 
    STEP 1. Find the line:      const articles = [];
    STEP 2. Put your cursor between the square brackets [ ].
@@ -210,6 +212,7 @@
      date: "2027",
      readingTime: "5 min read",
      excerpt: "A short description of the article.",
+     takeaway: "One or two sentences: the key idea of the article.",
      tags: ["Economics", "Research"],
      content: `
        <p>My article begins here.</p>
@@ -221,28 +224,19 @@
    RULES TO REMEMBER
    - "id" must be different for every article (article-1, article-2, ...).
    - "category" must be spelled EXACTLY as one of these:
-       Behavioural Economics
-       Macroeconomics
-       Public Policy
-       Econometrics
-       Development Economics
+       Behavioural Economics, Macroeconomics, Public Policy,
+       Econometrics, Development Economics
      The article then appears under that filter automatically, and the
      "Articles coming soon." message disappears for that category.
+   - "takeaway" fills the "Abstract / Key Takeaway" box on the card.
+     It is optional: if you leave it out, the box is simply not shown.
    - Keep the quotation marks "like this" and the comma after each line.
    - Put a comma after the closing } of every article.
    - Write your article inside the backticks ` ` after "content:".
-     You can use these HTML tags:
-       <p>...</p>               a paragraph
-       <h2>...</h2>             a main heading
-       <h3>...</h3>             a smaller heading
-       <ul><li>...</li></ul>    a bulleted list
-       <ol><li>...</li></ol>    a numbered list
-       <blockquote>...</blockquote>   a quotation
-       <a href="https://...">link text</a>   a link
-       <strong>...</strong>     bold      <em>...</em>   italic
+     You can use: <p> paragraph, <h2> heading, <h3> smaller heading,
+     <ul><li> bullets, <ol><li> numbers, <blockquote> quotation,
+     <a href="https://...">link</a>, <strong> bold, <em> italic.
    - Do not type a backtick (`) inside your article text.
-   - Newest articles can go at the top of the list; they appear in the
-     order you write them.
    ===================================================================== */
 
 // ▼▼▼  YOUR ARTICLES GO BETWEEN THE BRACKETS BELOW  ▼▼▼
@@ -254,15 +248,16 @@ const articles = [];
    EVERYTHING BELOW POWERS THE WEBSITE. You do not need to edit it.
    ===================================================================== */
 
-// The category filters shown on the page ("All" is always first).
-const categories = [
-  "All",
-  "Behavioural Economics",
-  "Macroeconomics",
-  "Public Policy",
-  "Econometrics",
-  "Development Economics"
-];
+const categories = ["All", "Behavioural Economics", "Macroeconomics", "Public Policy", "Econometrics", "Development Economics"];
+
+// Each category has its own warm tone (used for the card strip, banner and glow).
+const categoryColors = {
+  "Behavioural Economics": "#A8556A",
+  "Macroeconomics": "#C46B48",
+  "Public Policy": "#556B5E",
+  "Econometrics": "#C9922B",
+  "Development Economics": "#8A6A4F"
+};
 
 let activeCategory = "All";
 let lastFocusedElement = null;
@@ -271,14 +266,12 @@ const filtersEl = document.getElementById("filters");
 const listEl = document.getElementById("article-list");
 const readerEl = document.getElementById("reader");
 
-// Escape text so it is displayed safely (used for titles, excerpts, tags).
 function escapeHTML(text) {
   const div = document.createElement("div");
   div.textContent = text == null ? "" : String(text);
   return div.innerHTML;
 }
 
-/* ---------- Category filters ---------- */
 function renderFilters() {
   filtersEl.innerHTML = "";
   categories.forEach(function (name) {
@@ -287,8 +280,8 @@ function renderFilters() {
     button.type = "button";
     button.textContent = name;
     button.setAttribute("aria-pressed", isActive ? "true" : "false");
-    button.className = "text-sm pb-1 border-b transition-colors " +
-      (isActive ? "text-ink border-ink font-medium" : "text-muted border-transparent hover:text-ink");
+    button.className = "text-sm font-medium px-4 py-2 rounded-full border transition-colors " +
+      (isActive ? "bg-forest text-linen border-forest" : "bg-ivory text-body border-rule hover:border-terra hover:text-terra");
     button.addEventListener("click", function () {
       activeCategory = name;
       renderFilters();
@@ -298,63 +291,62 @@ function renderFilters() {
   });
 }
 
-/* ---------- Article cards / "coming soon" message ---------- */
 function renderArticles() {
-  const visible = articles.filter(function (article) {
-    return activeCategory === "All" || article.category === activeCategory;
+  const visible = articles.filter(function (a) {
+    return activeCategory === "All" || a.category === activeCategory;
   });
 
-  // No articles in this category (or none at all): show the placeholder.
   if (visible.length === 0) {
     const label = activeCategory === "All" ? "Research & Writing" : activeCategory;
     listEl.innerHTML =
-      '<div class="py-20 md:py-28 text-center">' +
-        '<p class="font-serif text-2xl md:text-3xl text-slate2">Articles coming soon.</p>' +
-        '<p class="mt-4 text-sm text-muted">New writing in ' + escapeHTML(label) + ' will appear here.</p>' +
+      '<div class="empty-state py-20 md:py-24 px-6 text-center">' +
+        '<p class="font-serif italic text-3xl text-forest">Articles coming soon.</p>' +
+        '<p class="mt-3 text-sm">New writing in ' + escapeHTML(label) + ' will appear here.</p>' +
       '</div>';
     return;
   }
 
-  // Otherwise build one card per article.
-  listEl.innerHTML = "";
+  listEl.innerHTML = '<div class="grid md:grid-cols-2 gap-6" id="card-grid"></div>';
+  const grid = document.getElementById("card-grid");
+
   visible.forEach(function (article) {
+    const color = categoryColors[article.category] || "#556B5E";
     const card = document.createElement("article");
-    card.className = "border-b border-rule";
+    card.className = "card shadow-soft flex flex-col";
+    card.style.setProperty("--c", color);
 
     const tags = (article.tags || []).map(function (t) {
-      return '<li>' + escapeHTML(t) + '</li>';
+      return '<li class="px-2.5 py-1 rounded-full bg-sage/10 text-sage text-xs font-medium">' + escapeHTML(t) + '</li>';
     }).join("");
+    const takeaway = article.takeaway
+      ? '<div class="abstract mt-5 px-4 py-3 text-sm leading-relaxed"><p class="font-semibold text-forest text-xs tracking-wide mb-1">Key takeaway</p>' + escapeHTML(article.takeaway) + '</div>'
+      : '';
 
     card.innerHTML =
-      '<button type="button" class="group w-full text-left py-9 md:py-10" aria-label="Read article: ' + escapeHTML(article.title) + '">' +
-        '<p class="text-sm text-muted">' + escapeHTML(article.category) + ' &nbsp;·&nbsp; ' + escapeHTML(article.date) + ' &nbsp;·&nbsp; ' + escapeHTML(article.readingTime) + '</p>' +
-        '<h3 class="mt-3 font-serif text-2xl md:text-3xl leading-snug text-ink group-hover:text-slate2 transition-colors">' + escapeHTML(article.title) + '</h3>' +
-        '<p class="mt-3 max-w-2xl leading-relaxed text-ink/80">' + escapeHTML(article.excerpt) + '</p>' +
-        (tags ? '<ul class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate2">' + tags + '</ul>' : '') +
+      '<div class="card-banner">' + escapeHTML(article.category) + '</div>' +
+      '<button type="button" class="text-left px-6 py-6 flex-1 flex flex-col" aria-label="Read article: ' + escapeHTML(article.title) + '">' +
+        '<p class="text-xs text-body/70">' + escapeHTML(article.date) + ' &nbsp;·&nbsp; ' + escapeHTML(article.readingTime) + '</p>' +
+        '<h3 class="mt-2 font-serif font-medium text-2xl leading-snug">' + escapeHTML(article.title) + '</h3>' +
+        '<p class="mt-3 text-sm leading-relaxed">' + escapeHTML(article.excerpt) + '</p>' +
+        takeaway +
+        (tags ? '<ul class="mt-5 flex flex-wrap gap-2">' + tags + '</ul>' : '') +
       '</button>';
 
-    card.querySelector("button").addEventListener("click", function () {
-      openReader(article);
-    });
-    listEl.appendChild(card);
+    card.querySelector("button").addEventListener("click", function () { openReader(article); });
+    grid.appendChild(card);
   });
 }
 
-/* ---------- Article reader ---------- */
 function openReader(article) {
   lastFocusedElement = document.activeElement;
-
-  document.getElementById("reader-meta").textContent =
-    article.category + "  ·  " + article.date + "  ·  " + article.readingTime;
+  document.getElementById("reader-meta").textContent = article.category + "  ·  " + article.date + "  ·  " + article.readingTime;
   document.getElementById("reader-title").textContent = article.title;
   document.getElementById("reader-tags").innerHTML = (article.tags || []).map(function (t) {
-    return '<li class="border border-rule px-2.5 py-1">' + escapeHTML(t) + '</li>';
+    return '<li class="px-2.5 py-1 rounded-full bg-sage/10 font-medium">' + escapeHTML(t) + '</li>';
   }).join("");
-  // Article content is your own HTML, so it is inserted as written.
   document.getElementById("reader-content").innerHTML = article.content || "";
-
   readerEl.classList.remove("hidden");
-  document.body.style.overflow = "hidden";   // stop the page behind from scrolling
+  document.body.style.overflow = "hidden";
   readerEl.scrollTop = 0;
   document.getElementById("reader-close").focus();
 }
@@ -362,9 +354,7 @@ function openReader(article) {
 function closeReader() {
   readerEl.classList.add("hidden");
   document.body.style.overflow = "";
-  if (lastFocusedElement && document.contains(lastFocusedElement)) {
-    lastFocusedElement.focus();
-  }
+  if (lastFocusedElement && document.contains(lastFocusedElement)) lastFocusedElement.focus();
 }
 
 document.getElementById("reader-close").addEventListener("click", closeReader);
@@ -372,29 +362,19 @@ document.getElementById("reader-back").addEventListener("click", closeReader);
 document.getElementById("reader-back-bottom").addEventListener("click", closeReader);
 
 document.addEventListener("keydown", function (event) {
-  const readerOpen = !readerEl.classList.contains("hidden");
-  if (readerOpen && event.key === "Escape") {
-    closeReader();
-    return;
-  }
-  // Keep keyboard focus inside the reader while it is open.
-  if (readerOpen && event.key === "Tab") {
-    const focusable = readerEl.querySelectorAll("a[href], button");
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault(); last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault(); first.focus();
-    }
+  const open = !readerEl.classList.contains("hidden");
+  if (open && event.key === "Escape") { closeReader(); return; }
+  if (open && event.key === "Tab") {
+    const f = readerEl.querySelectorAll("a[href], button");
+    if (!f.length) return;
+    if (event.shiftKey && document.activeElement === f[0]) { event.preventDefault(); f[f.length - 1].focus(); }
+    else if (!event.shiftKey && document.activeElement === f[f.length - 1]) { event.preventDefault(); f[0].focus(); }
   }
 });
 
 /* ---------- Mobile menu ---------- */
 const menuButton = document.getElementById("menu-button");
 const mobileMenu = document.getElementById("mobile-menu");
-
 function setMenu(open) {
   mobileMenu.classList.toggle("hidden", !open);
   document.getElementById("icon-open").classList.toggle("hidden", open);
@@ -402,17 +382,10 @@ function setMenu(open) {
   menuButton.setAttribute("aria-expanded", open ? "true" : "false");
   menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
 }
-menuButton.addEventListener("click", function () {
-  setMenu(mobileMenu.classList.contains("hidden"));
-});
-document.querySelectorAll(".mobile-link").forEach(function (link) {
-  link.addEventListener("click", function () { setMenu(false); });
-});
+menuButton.addEventListener("click", function () { setMenu(mobileMenu.classList.contains("hidden")); });
+document.querySelectorAll(".mobile-link").forEach(function (l) { l.addEventListener("click", function () { setMenu(false); }); });
 window.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
-    setMenu(false);
-    menuButton.focus();
-  }
+  if (event.key === "Escape" && !mobileMenu.classList.contains("hidden")) { setMenu(false); menuButton.focus(); }
 });
 
 /* ---------- Start up ---------- */
