@@ -10,149 +10,123 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-  tailwind.config = { theme: { extend: {
-    fontFamily: { serif: ['Newsreader', 'Georgia', 'serif'], sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
-    colors: { linen: '#F7F3EB', ivory: '#FFFDF9', forest: '#1D2926', sage: '#556B5E', terra: '#C46B48', body: '#3A4642', rule: '#DDD5C4' }
-  } } };
+tailwind.config = { theme: { extend: {
+  fontFamily: { serif: ['Newsreader','Georgia','serif'], sans: ['"Plus Jakarta Sans"','system-ui','sans-serif'] },
+  colors: { linen:'#F7F3EB', ivory:'#FFFDF9', forest:'#1D2926', sage:'#556B5E', terra:'#C46B48', body:'#3A4642', rule:'#DDD5C4' } } } };
 </script>
 <style>
-  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
-  body { background: #F7F3EB; color: #3A4642; }
-  :focus-visible { outline: 2px solid #C46B48; outline-offset: 3px; }
-  h1, h2, h3 { color: #1D2926; }
-
-  /* Hero: fine dot grid texture + double rules like a newspaper masthead */
-  .dot-grid { background-image: radial-gradient(rgba(85,107,94,.22) 1px, transparent 1.2px); background-size: 20px 20px; }
-  .double-rule { border-top: 3px double #1D2926; }
-  .double-rule-bottom { border-bottom: 3px double #1D2926; }
-  .shadow-soft { box-shadow: 0 1px 2px rgba(29,41,38,.06), 0 6px 18px rgba(29,41,38,.06); }
-
-  .link-line { background-image: linear-gradient(#C46B48, #C46B48); background-size: 100% 2px; background-position: 0 100%; background-repeat: no-repeat; }
-  .link-line:hover { color: #C46B48; }
-
-  /* Article cards: coloured strip + geometric banner + glow on hover */
-  .card { background: #FFFDF9; border: 1px solid #DDD5C4; border-top: 5px solid var(--c); transition: box-shadow .25s, border-color .25s, transform .25s; }
-  .card:hover, .card:focus-within { border-color: var(--c); box-shadow: 0 0 0 1px var(--c), 0 10px 28px rgba(196,107,72,.2); transform: translateY(-2px); }
-  .card-banner { height: 46px; display: flex; align-items: center; padding: 0 1.5rem; color: #1D2926; font-size: .75rem; font-weight: 600; letter-spacing: .04em;
-    background-color: color-mix(in srgb, var(--c) 14%, #FFFDF9);
-    background-image: repeating-linear-gradient(135deg, color-mix(in srgb, var(--c) 22%, transparent) 0 2px, transparent 2px 12px); }
-  .abstract { border-left: 3px solid var(--c); background: color-mix(in srgb, var(--c) 8%, #FFFDF9); }
-
-  .empty-state { background-color: #FFFDF9; border: 1px dashed #B9AE97; background-image: repeating-linear-gradient(45deg, rgba(85,107,94,.06) 0 1px, transparent 1px 14px); }
-
-  /* Reader typography */
-  .prose-article { font-size: 1.0625rem; line-height: 1.85; color: #3A4642; }
-  .prose-article p { margin: 0 0 1.4em; }
-  .prose-article h2 { font-family: Newsreader, Georgia, serif; font-size: 1.65rem; line-height: 1.3; margin: 2.2em 0 .7em; }
-  .prose-article h3 { font-family: Newsreader, Georgia, serif; font-size: 1.3rem; margin: 1.9em 0 .6em; }
-  .prose-article ul, .prose-article ol { margin: 0 0 1.4em 1.4em; padding: 0; }
-  .prose-article ul { list-style: disc; } .prose-article ol { list-style: decimal; }
-  .prose-article li { margin-bottom: .45em; padding-left: .2em; }
-  .prose-article blockquote { margin: 1.8em 0; padding: .4em 0 .4em 1.4em; border-left: 3px solid #C46B48; font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 1.2rem; color: #1D2926; }
-  .prose-article a { color: #556B5E; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #C46B48; }
-  .prose-article a:hover { color: #C46B48; }
-  .prose-article img { max-width: 100%; height: auto; margin: 1.6em 0; }
-  .prose-article th, .prose-article td { border-bottom: 1px solid #DDD5C4; padding: .5em .6em; text-align: left; }
-  .prose-article table { width: 100%; border-collapse: collapse; margin: 1.6em 0; }
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+body{background:#F7F3EB;color:#3A4642}
+:focus-visible{outline:2px solid #C46B48;outline-offset:3px}
+h1,h2,h3{color:#1D2926}
+.graph-paper{background-image:linear-gradient(rgba(85,107,94,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(85,107,94,.12) 1px,transparent 1px);background-size:24px 24px}
+.double-rule{border-top:3px double #1D2926}.double-rule-b{border-bottom:3px double #1D2926}
+.shadow-soft{box-shadow:0 1px 2px rgba(29,41,38,.06),0 6px 18px rgba(29,41,38,.06)}
+.link-line{background-image:linear-gradient(#C46B48,#C46B48);background-size:100% 2px;background-position:0 100%;background-repeat:no-repeat}
+.link-line:hover{color:#C46B48}
+.pill{font-size:.75rem;font-weight:500;padding:.35rem .9rem;border-radius:999px;color:#556B5E;background:#FFFDF9;border:1px solid #B8C6BC}
+.card{background:#FFFDF9;border:1px solid #DDD5C4;border-top:5px solid var(--c);transition:box-shadow .25s,border-color .25s,transform .25s}
+.card.live:hover,.card.live:focus-within{border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 10px 28px rgba(196,107,72,.2);transform:translateY(-2px)}
+.banner{position:relative;height:150px;overflow:hidden;background-color:color-mix(in srgb,var(--c) 14%,#FFFDF9);background-image:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 22%,transparent) 0 2px,transparent 2px 12px)}
+.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(96%) sepia(8%);transition:transform .6s}
+.card.live:hover .banner img{transform:scale(1.05)}
+.abstract{border-left:3px solid var(--c);background:color-mix(in srgb,var(--c) 8%,#FFFDF9)}
+.empty-state{background:#FFFDF9;border:1px dashed #B9AE97}
+.prose-article{font-size:17px;line-height:1.85}
+.prose-article p{margin:0 0 1.4em}
+.prose-article h2{font-family:Newsreader,Georgia,serif;font-size:1.6em;line-height:1.3;margin:2.2em 0 .7em}
+.prose-article ul,.prose-article ol{margin:0 0 1.4em 1.4em}.prose-article ul{list-style:disc}.prose-article ol{list-style:decimal}
+.prose-article li{margin-bottom:.6em;padding-left:.2em}
+.prose-article blockquote{margin:1.8em 0;padding-left:1.4em;border-left:3px solid #C46B48;font-family:Newsreader,serif;font-style:italic;color:#1D2926}
+.prose-article a{color:#556B5E;text-decoration:underline;text-decoration-color:#C46B48;text-underline-offset:3px}
+.prose-article .refs{list-style:none;margin-left:0;font-size:.85em;line-height:1.6;color:#555}
+.prose-article .refs li{padding-left:1.5em;text-indent:-1.5em}
+.term{border-bottom:1px dotted #C46B48;cursor:help;position:relative;outline:none}
+.term::after{content:attr(data-def);position:absolute;left:0;bottom:135%;width:15rem;background:#1D2926;color:#F7F3EB;font:400 .8rem/1.5 'Plus Jakarta Sans',sans-serif;padding:.6rem .75rem;opacity:0;pointer-events:none;transition:opacity .15s;z-index:5}
+.term:hover::after,.term:focus::after{opacity:1}
+#sras2,#eq2{opacity:0;transition:opacity .6s}.shock #sras2,.shock #eq2{opacity:1}
+.notes-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.notes-wrap.open{grid-template-rows:1fr}
+.notes-wrap>div{overflow:hidden;min-height:0;visibility:hidden;transition:visibility .4s}
+.notes-wrap.open>div{visibility:visible}
+#notes-btn svg{transition:transform .3s}#notes-btn[aria-expanded=true] svg{transform:rotate(180deg)}
+#oil-slider{height:28px;cursor:pointer}
 </style>
 </head>
-
 <body class="font-sans antialiased">
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-forest focus:text-linen focus:px-4 focus:py-2">Skip to content</a>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] focus:bg-forest focus:text-linen focus:px-4 focus:py-2">Skip to content</a>
 
-<!-- ============ ANNOUNCEMENT BANNER (edit the sentence below any time) ============ -->
 <div class="bg-sage text-linen text-center text-xs sm:text-sm px-4 py-2.5 tracking-wide">
-  <span class="font-serif italic text-base mr-2">Current Research Focus</span>
-  <span class="hidden sm:inline opacity-60">|</span>
+  <span class="font-serif italic text-base mr-2">Current Research Focus</span><span class="hidden sm:inline opacity-60">|</span>
   <span class="block sm:inline sm:ml-2">Behavioural economics, public policy &amp; quantitative methods</span>
 </div>
 
-<!-- ============ NAVIGATION ============ -->
 <header class="sticky top-0 z-40 bg-linen/95 backdrop-blur border-b border-rule">
   <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
     <a href="#top" class="font-serif text-xl font-semibold text-forest">Naisha Malik</a>
-    <ul class="hidden md:flex items-center gap-9 text-sm font-medium text-body">
-      <li><a class="hover:text-terra transition-colors" href="#about">About</a></li>
-      <li><a class="hover:text-terra transition-colors" href="#interests">Research Interests</a></li>
-      <li><a class="hover:text-terra transition-colors" href="#writing">Research &amp; Writing</a></li>
-      <li><a class="hover:text-terra transition-colors" href="#contact">Contact</a></li>
+    <ul class="hidden md:flex gap-9 text-sm font-medium">
+      <li><a class="hover:text-terra" href="#about">About</a></li><li><a class="hover:text-terra" href="#interests">Research Interests</a></li>
+      <li><a class="hover:text-terra" href="#writing">Research &amp; Writing</a></li><li><a class="hover:text-terra" href="#contact">Contact</a></li>
     </ul>
     <button id="menu-button" class="md:hidden -mr-2 p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
       <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
       <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </nav>
-  <div id="mobile-menu" class="hidden md:hidden border-t border-rule bg-linen">
-    <ul class="max-w-5xl mx-auto px-6 py-3">
-      <li><a class="mobile-link block py-3 border-b border-rule" href="#about">About</a></li>
-      <li><a class="mobile-link block py-3 border-b border-rule" href="#interests">Research Interests</a></li>
-      <li><a class="mobile-link block py-3 border-b border-rule" href="#writing">Research &amp; Writing</a></li>
-      <li><a class="mobile-link block py-3" href="#contact">Contact</a></li>
-    </ul>
-  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-rule bg-linen"><ul class="max-w-5xl mx-auto px-6 py-3">
+    <li><a class="mobile-link block py-3 border-b border-rule" href="#about">About</a></li><li><a class="mobile-link block py-3 border-b border-rule" href="#interests">Research Interests</a></li>
+    <li><a class="mobile-link block py-3 border-b border-rule" href="#writing">Research &amp; Writing</a></li><li><a class="mobile-link block py-3" href="#contact">Contact</a></li></ul></div>
 </header>
 
 <main id="main">
-
-<!-- ============ HERO / MASTHEAD ============ -->
 <section id="top" class="max-w-5xl mx-auto px-4 sm:px-6 pt-10 md:pt-14">
-  <div class="double-rule double-rule-bottom bg-ivory dot-grid shadow-soft px-6 sm:px-12 py-14 md:py-20 text-center">
-    <p class="text-xs font-semibold tracking-[0.25em] text-sage">ECONOMICS · RESEARCH · WRITING</p>
-    <h1 class="mt-6 font-serif font-medium text-5xl sm:text-7xl md:text-8xl leading-[1.02] tracking-tight">Naisha Malik</h1>
-    <div class="mx-auto my-8 w-24 border-t-2 border-terra"></div>
-    <p class="mx-auto max-w-xl font-serif italic text-xl md:text-2xl leading-relaxed text-body">
-      Exploring economics, mathematics, public policy, and human behaviour through research and writing.
-    </p>
-    <a href="#writing" class="link-line inline-block mt-9 pb-1 text-sm font-semibold text-forest">Read the writing</a>
-  </div>
-  <!-- Interests pill bar -->
-  <ul class="mt-6 flex flex-wrap justify-center gap-2" aria-label="Research interests">
-    <li class="pill">Behavioural Economics</li><li class="pill">Development Economics</li><li class="pill">Public Policy</li><li class="pill">Econometrics</li>
-    <li class="pill">Economic Inequality</li><li class="pill">Political Economy</li><li class="pill">Quantitative Methods</li><li class="pill">Economics of Education</li>
-  </ul>
-</section>
-<style>.pill { font-size: .75rem; font-weight: 500; padding: .35rem .9rem; border-radius: 999px; color: #556B5E; background: #FFFDF9; border: 1px solid #B8C6BC; }</style>
-
-<!-- ============ ABOUT ============ -->
-<section id="about" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
-  <div class="grid md:grid-cols-12 gap-8 md:gap-12">
-    <h2 class="md:col-span-4 font-serif font-medium text-3xl md:text-4xl">About
-      <span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
-    <div class="md:col-span-8 space-y-5 text-[1.0625rem] leading-[1.85]">
-      <p>I'm a student with a growing interest in economics and the way it explains, and sometimes fails to explain, the choices people make. Mathematics is part of what draws me in: I like questions that can be reasoned about carefully and tested against evidence.</p>
-      <p>I'm especially curious about public policy and behavioural economics, and about how ideas from theory hold up when they meet real communities and real constraints. I use this site to think through those questions in writing, and to share what I'm reading and learning as I go.</p>
+  <div class="relative overflow-hidden double-rule double-rule-b bg-ivory graph-paper shadow-soft px-6 sm:px-12 py-14 md:py-20 text-center">
+    <!-- Line art: supply-demand curves and globe latitude lines -->
+    <svg class="absolute -right-10 -bottom-10 w-72 md:w-96 opacity-[.18] pointer-events-none" viewBox="0 0 300 300" fill="none" stroke="#556B5E" stroke-width="1.2" aria-hidden="true">
+      <circle cx="150" cy="150" r="120"/><ellipse cx="150" cy="150" rx="50" ry="120"/><ellipse cx="150" cy="150" rx="95" ry="120"/>
+      <path d="M30 150h240M45 95h210M45 205h210M70 55h160M70 245h160"/>
+      <path stroke="#C46B48" stroke-width="2" d="M50 60 Q130 140 250 250M50 250 Q130 160 250 50"/><circle cx="150" cy="155" r="5" fill="#C46B48" stroke="none"/>
+    </svg>
+    <div class="relative">
+      <p class="text-xs font-semibold tracking-[0.25em] text-sage">ECONOMICS · RESEARCH · WRITING</p>
+      <h1 class="mt-6 font-serif font-medium text-5xl sm:text-7xl md:text-8xl leading-[1.02] tracking-tight">Naisha Malik</h1>
+      <div class="mx-auto my-8 w-24 border-t-2 border-terra"></div>
+      <p class="mx-auto max-w-xl font-serif italic text-xl md:text-2xl leading-relaxed">Exploring economics, mathematics, public policy, and human behaviour through research and writing.</p>
+      <p class="mt-8 text-[11px] font-semibold tracking-[0.2em] text-sage">RESEARCH INTERESTS</p>
+      <ul class="mt-3 flex flex-wrap justify-center gap-2" aria-label="Research interests"><li class="pill">Public Policy</li><li class="pill">Development Economics</li><li class="pill">Econometrics</li></ul>
+      <a href="#writing" class="link-line inline-block mt-9 pb-1 text-sm font-semibold text-forest">Read the writing</a>
     </div>
   </div>
+  
 </section>
 
-<!-- ============ RESEARCH INTERESTS ============ -->
-<section id="interests" class="border-y border-rule bg-ivory">
-  <div class="max-w-5xl mx-auto px-6 py-20 md:py-28">
-    <h2 class="font-serif font-medium text-3xl md:text-4xl">Research Interests
-      <span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
-    <dl class="mt-12 grid sm:grid-cols-2 gap-5">
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Behavioural Economics</dt><dd class="mt-1 text-sm leading-relaxed">How psychology shapes the decisions people actually make.</dd></div>
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Development Economics</dt><dd class="mt-1 text-sm leading-relaxed">What helps people and economies move out of poverty.</dd></div>
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Public Policy</dt><dd class="mt-1 text-sm leading-relaxed">Weighing the real effects of the policies that govern daily life.</dd></div>
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Econometrics</dt><dd class="mt-1 text-sm leading-relaxed">Learning to draw careful conclusions from economic data.</dd></div>
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Economic Inequality</dt><dd class="mt-1 text-sm leading-relaxed">Why resources and opportunities are distributed as they are.</dd></div>
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Political Economy</dt><dd class="mt-1 text-sm leading-relaxed">How institutions and incentives shape economic outcomes.</dd></div>
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Quantitative Methods</dt><dd class="mt-1 text-sm leading-relaxed">The mathematical and statistical tools behind good analysis.</dd></div>
-      <div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">Economics of Education</dt><dd class="mt-1 text-sm leading-relaxed">How schooling affects opportunity and later life outcomes.</dd></div>
-    </dl>
+<section id="about" class="max-w-5xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-12 gap-8 md:gap-12">
+  <h2 class="md:col-span-4 font-serif font-medium text-3xl md:text-4xl">About<span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
+  <div class="md:col-span-8 space-y-5 text-[1.0625rem] leading-[1.85]">
+    <p>I'm a student with a growing interest in economics and the way it explains, and sometimes fails to explain, the choices people make. Mathematics is part of what draws me in: I like questions that can be reasoned about carefully and tested against evidence.</p>
+    <p>I'm especially curious about public policy and behavioural economics, and about how ideas from theory hold up when they meet real communities and real constraints. I use this site to think through those questions in writing, and to share what I'm reading and learning as I go.</p>
   </div>
 </section>
 
-<!-- ============ RESEARCH & WRITING ============ -->
+<section id="interests" class="border-y border-rule bg-ivory"><div class="max-w-5xl mx-auto px-6 py-20 md:py-28">
+  <h2 class="font-serif font-medium text-3xl md:text-4xl">Research Interests<span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
+  <dl id="interest-list" class="mt-12 grid sm:grid-cols-2 gap-5"></dl>
+</div></section>
+
 <section id="writing" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
-  <h2 class="font-serif font-medium text-3xl md:text-4xl">Research &amp; Writing
-    <span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
+  <h2 class="font-serif font-medium text-3xl md:text-4xl">Research &amp; Writing<span class="block mt-4 w-12 border-t-2 border-terra"></span></h2>
   <div id="filters" class="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter writing by category"></div>
   <div id="article-list" class="mt-8" aria-live="polite"></div>
+
+  <!-- Research pipeline -->
+  <div class="mt-20 pt-10 double-rule">
+    <h3 class="font-serif font-medium text-2xl">Current Research Pipeline</h3>
+    <div id="pipe-filters" class="mt-5 flex flex-wrap gap-2" role="group" aria-label="Filter pipeline by status"></div>
+    <ul id="pipe-list" class="mt-6 grid md:grid-cols-2 gap-5"></ul>
+  </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
 <section id="contact" class="max-w-5xl mx-auto px-6 pb-20 md:pb-28">
   <div class="bg-forest text-linen shadow-soft px-8 sm:px-14 py-14 md:py-16 text-center border-t-[5px] border-terra">
     <h2 class="font-serif font-medium text-3xl md:text-4xl !text-linen">Get in Touch for Research Inquiries</h2>
@@ -162,236 +136,450 @@
 </section>
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer class="double-rule bg-ivory">
-  <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs">
-    <p><span class="font-serif text-base font-semibold text-forest">Naisha Malik</span> &nbsp;·&nbsp; Economics · Research · Writing</p>
-    <p>&copy; <span id="year"></span></p>
-  </div>
-</footer>
+<footer class="double-rule bg-ivory"><div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row sm:justify-between gap-2 text-xs">
+  <p><span class="font-serif text-base font-semibold text-forest">Naisha Malik</span> &nbsp;·&nbsp; Economics · Research · Writing</p><div class="flex items-center gap-4"><button id="copy-email" type="button" class="border border-rule bg-linen px-3 py-1.5 font-semibold text-forest hover:border-terra hover:text-terra transition-colors" aria-label="Copy email address naishamalik01@gmail.com to clipboard">Copy email</button><p>&copy; <span id="year"></span></p></div></div></footer>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[90] bg-forest text-linen text-sm px-5 py-2.5 shadow-soft hidden" role="status">Copied!</div>
 
 <!-- ============ ARTICLE READER ============ -->
 <div id="reader" class="hidden fixed inset-0 z-50 bg-linen overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="reader-title" tabindex="-1">
-  <div class="sticky top-0 z-10 bg-linen/95 backdrop-blur border-b border-rule">
-    <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
-      <button id="reader-back" class="text-sm font-medium hover:text-terra flex items-center gap-2">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back to all writing</button>
-      <button id="reader-close" class="p-2 -mr-2 hover:text-terra" aria-label="Close article">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    </div>
-  </div>
-  <article class="max-w-2xl mx-auto px-6 pt-14 pb-28">
+  <div id="progress" class="fixed top-0 left-0 h-[3px] bg-terra z-[60]" style="width:0"></div>
+  <div class="sticky top-0 z-10 bg-linen/95 backdrop-blur border-b border-rule"><div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between gap-3">
+    <button id="reader-back" class="text-sm font-medium hover:text-terra flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</button>
+    <div class="flex items-center gap-1" role="group" aria-label="Text size">
+      <button id="fs-down" class="px-2.5 py-1 text-sm border border-rule hover:border-terra" aria-label="Decrease text size">A-</button>
+      <button id="fs-up" class="px-2.5 py-1 text-base border border-rule hover:border-terra" aria-label="Increase text size">A+</button>
+      <button id="reader-close" class="p-2 ml-2 hover:text-terra" aria-label="Close article"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div></div></div>
+  <article class="max-w-2xl mx-auto px-6 pt-12 pb-28">
     <p id="reader-meta" class="text-sm font-medium text-sage"></p>
-    <h2 id="reader-title" class="mt-4 font-serif font-medium text-4xl md:text-5xl leading-tight"></h2>
-    <ul id="reader-tags" class="mt-6 flex flex-wrap gap-2 text-xs text-sage"></ul>
-    <div class="my-10 double-rule"></div>
-    <div id="reader-content" class="prose-article"></div>
-    <div class="mt-16 mb-8 double-rule"></div>
-    <button id="reader-back-bottom" class="link-line pb-1 text-sm font-semibold text-forest">Back to all writing</button>
+    <h2 id="reader-title" class="mt-4 font-serif font-medium text-3xl md:text-5xl leading-tight"></h2>
+    <p id="reader-author" class="mt-4 text-sm"></p>
+    <ul id="reader-tags" class="mt-5 flex flex-wrap gap-2 text-xs text-sage"></ul>
+    <div id="reader-takeaways" class="mt-8"></div>
+    <div id="reader-content" class="prose-article mt-10"></div>
+    <div class="mt-14 pt-8 double-rule flex flex-wrap items-center gap-6">
+      <button id="cite-btn" class="bg-forest text-linen text-sm font-semibold px-5 py-3 hover:bg-terra transition-colors">Cite This Essay</button>
+      <button id="notes-btn" type="button" aria-expanded="false" aria-controls="notes-wrap" class="hidden border border-forest text-forest text-sm font-semibold px-5 py-3 hover:border-terra hover:text-terra transition-colors inline-flex items-center gap-2">Data Sources &amp; Analytical Notes<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <button id="reader-back-bottom" class="link-line pb-1 text-sm font-semibold text-forest">Back to all writing</button>
+    </div>
+    <div id="notes-wrap" class="notes-wrap"><div><div id="notes-body" class="mt-6 bg-ivory border border-rule border-l-[4px] border-l-sage p-6 text-sm leading-relaxed space-y-3"></div></div></div>
   </article>
 </div>
 
 <script>
 /* =====================================================================
-   HOW TO PUBLISH A NEW ARTICLE  (read this first!)
-   =====================================================================
-   You only ever need to edit the list called "articles" below.
-
-   STEP 1. Find the line:      const articles = [];
-   STEP 2. Put your cursor between the square brackets [ ].
-   STEP 3. Copy the template below, paste it between the brackets,
-           and replace the text with your own.
-   STEP 4. Save the file and refresh the page in your browser.
-
-   TEMPLATE (copy everything from the { to the },):
+   HOW TO PUBLISH A NEW ARTICLE
+   1. Copy the template below and paste it inside the [ ] of "articles".
+   2. Change the text. "category" must match a filter name exactly:
+      Macroeconomics, Financial Economics, Behavioural Economics.
+      (To add a new tab, also add its name to the "categories" list further down.)
+   3. Save and refresh. The card appears and "coming soon" disappears.
+   - Every article needs a different id and a comma after its closing }.
+   - Optional fields: takeaway (card box), takeaways (box in reader),
+     image (a photo link), author. Put status: "soon" for a
+     "Coming soon" preview card that cannot be opened.
+   - Do not type a backtick inside your article text.
+   - Key terms: <span class="term" tabindex="0" data-def="Meaning">term</span>
 
    {
-     id: "article-1",
-     title: "My Article Title",
-     category: "Behavioural Economics",
-     date: "2027",
-     readingTime: "5 min read",
-     excerpt: "A short description of the article.",
-     takeaway: "One or two sentences: the key idea of the article.",
-     tags: ["Economics", "Research"],
-     content: `
-       <p>My article begins here.</p>
-       <h2>Introduction</h2>
-       <p>My writing continues here.</p>
-     `
+     id: "article-2", title: "My Article Title", category: "Behavioural Economics",
+     date: "2027", readingTime: "5 min read",
+     excerpt: "A short description.", tags: ["Economics"],
+     content: `<p>My article begins here.</p><h2>Introduction</h2><p>More text.</p>`
    },
-
-   RULES TO REMEMBER
-   - "id" must be different for every article (article-1, article-2, ...).
-   - "category" must be spelled EXACTLY as one of these:
-       Behavioural Economics, Macroeconomics, Public Policy,
-       Econometrics, Development Economics
-     The article then appears under that filter automatically, and the
-     "Articles coming soon." message disappears for that category.
-   - "takeaway" fills the "Abstract / Key Takeaway" box on the card.
-     It is optional: if you leave it out, the box is simply not shown.
-   - Keep the quotation marks "like this" and the comma after each line.
-   - Put a comma after the closing } of every article.
-   - Write your article inside the backticks ` ` after "content:".
-     You can use: <p> paragraph, <h2> heading, <h3> smaller heading,
-     <ul><li> bullets, <ol><li> numbers, <blockquote> quotation,
-     <a href="https://...">link</a>, <strong> bold, <em> italic.
-   - Do not type a backtick (`) inside your article text.
    ===================================================================== */
 
+const U = "https://images.unsplash.com/";
+const Q = "?auto=format&fit=crop&w=1200&q=80";
+
 // ▼▼▼  YOUR ARTICLES GO BETWEEN THE BRACKETS BELOW  ▼▼▼
-const articles = [];
+const articles = [
+  {
+    id: "article-1",
+    title: "Chokepoint Economics: What the Strait of Hormuz Crisis Teaches Us About Stagflation",
+    category: "Macroeconomics",
+    author: "Naisha Malik",
+    date: "2026",
+    readingTime: "5 min read",
+    image: U + "photo-1554224155-6726b3ff858f" + Q,
+    excerpt: "Roughly a fifth of the world's oil moves through the Strait of Hormuz. When shipping disruptions and security risks flare up, higher insurance costs and longer tanker detours trigger a supply shock that has helped lift the UN's 2026 global inflation forecast to 3.9 per cent. Using basic AD-AS mechanics and exchange-rate pass-through, this essay explains why energy chokepoints trap central banks in a tough trade-off, and how oil-importing countries like India can protect households without blowing up their budgets.",
+    takeaway: "Oil chokepoints cause supply shocks, so interest rates alone cannot fix them.",
+    tags: ["Macroeconomics", "Energy", "India", "Inflation"],
+    takeaways: [
+      { label: "The Shock", text: "Disruption at the Strait of Hormuz, which carries about 20% of the world's oil, raises insurance and shipping costs and pushes crude prices up." },
+      { label: "Economic Mechanism", text: "An adverse supply shock shifts short-run aggregate supply inward, so prices rise while growth slows. Central banks face a stagflation trap." },
+      { label: "Policy Fix", text: "Watch core inflation, use targeted cash transfers instead of blanket fuel tax cuts, and invest in domestic renewable energy." }
+    ],
+    notes: `<p class="font-semibold text-forest">Data sources</p><ul class="list-disc ml-5 space-y-1"><li>Oil and LNG flows: US EIA (2025) and IEA (n.d.).</li><li>Global inflation of 3.9% for 2026: UN DESA mid-2026 update, raised from 3.1% in January.</li><li>India's import reliance: about 85% (PRS Legislative Research, 2026); PPAC data reported in the press put it near 88% for 2024-25.</li><li>Policy guidance: IMF blogs (April and May 2026) and the RBI Monetary Policy Report (April 2026).</li></ul><p class="font-semibold text-forest">Analytical notes</p><ul class="list-disc ml-5 space-y-1"><li>The AD-AS diagram is stylised: it shows direction, not magnitude.</li><li>The oil slider is an illustration built on the assumptions listed under it. It holds the rupee constant and ignores subsidies, stockpiles and demand responses, so it is not a forecast.</li><li>How far oil prices feed into inflation differs by country and over time.</li></ul>`,
+    content: `
+<p>In high school economics, inflation is usually taught as a demand story: people have too much money, buy too much stuff, and prices go up. Watching shipping disruptions unfold in the Strait of Hormuz shows how quickly real-world geography can flip that story upside down.</p>
+<h2>1. How One Narrow Waterway Moves Global Prices</h2>
+<p>Sitting between Oman and Iran, the Strait of Hormuz is only 21 miles wide at its narrowest point, yet about 20 million barrels of oil a day, roughly a fifth of global petroleum consumption, passes through it, along with about a fifth of global liquefied natural gas (LNG) trade (U.S. Energy Information Administration, 2025). A waterway does not even need to be completely closed to rattle global markets. In 2026 the disruption went further: the IMF described the strait as closed and critical energy facilities as damaged (International Monetary Fund, 2026a). When maritime tensions rise, war-risk insurance for tankers spikes overnight, ships take longer detours, and countries start dipping into emergency oil reserves. Because short-run demand for oil is <span class="term" tabindex="0" data-def="Demand barely changes when the price changes, because people and firms cannot easily switch away.">price-inelastic</span> (airlines, delivery trucks, and power plants cannot switch away from fuel overnight), even a small drop in shipping reliability causes a sharp jump in crude prices, which helped push the United Nations' 2026 global inflation forecast up to 3.9 per cent, from 3.1 per cent in January (United Nations DESA, 2026).</p>
+<div data-chart="adas"></div>
+<h2>2. The Central Bank's Stagflation Dilemma</h2>
+<p>When inflation climbs during an economic boom, central banks follow a simple rule: raise interest rates to make borrowing more expensive, slow down consumer spending, and cool prices back down.</p>
+<p>An energy chokepoint breaks that playbook because it creates an <span class="term" tabindex="0" data-def="A sudden rise in production costs that reduces how much an economy can supply at every price level.">adverse supply shock</span>, not a spending boom (Blanchard &amp; Galí, 2007). Expensive oil and gas raise production costs for factories, airlines, and farmers while leaving families with less money to spend on everything else. On an AD-AS graph, the short-run aggregate supply curve shifts inward, which means prices go up at the same time economic growth slows down.</p>
+<p>That leaves central banks like the Federal Reserve and the Reserve Bank of India (RBI) stuck in a classic <span class="term" tabindex="0" data-def="Stagnant growth and high inflation at the same time, so fighting one problem tends to worsen the other.">stagflation trap</span>:</p>
+<ul>
+<li>If they raise interest rates to fight rising fuel prices, loans become pricier for businesses and families, slowing the economy down even more without adding a single barrel of oil to global supply.</li>
+<li>If they cut interest rates to protect jobs, they risk letting temporary fuel spikes turn into broader wage and price increases across the whole economy.</li>
+</ul>
+<p>As Blanchard and Galí (2007) pointed out in their research on oil shocks, central banks cannot print barrels of oil. They can only decide how the pain gets split between higher inflation and slower growth.</p>
+<h2>3. Why India Feels the Ripple Effects Faster</h2>
+<p>For a major energy importer like India, which imports roughly 85 per cent or more of its crude oil (PRS Legislative Research, 2026) and takes much of its LNG through Hormuz (International Energy Agency, n.d.), the crisis reaches households through three channels:</p>
+<ol>
+<li><strong>A Wider Trade Deficit:</strong> Because India still needs roughly the same amount of fuel even when prices jump, its total oil import bill climbs fast, widening the current account deficit (Reserve Bank of India, 2026).</li>
+<li><strong><span class="term" tabindex="0" data-def="How much a weaker currency raises the prices of imported goods inside the country.">Exchange-Rate Pass-Through</span>:</strong> Buying more expensive oil requires more U.S. dollars, which puts downward pressure on the rupee. A weaker rupee makes every other imported good, including electronics and fertilizers, more expensive inside India.</li>
+<li><strong>Fiscal Opportunity Cost:</strong> When petrol and cooking-gas prices rise, the government faces heavy pressure to cut fuel taxes or expand subsidies. Every rupee spent subsidising fuel is a rupee taken away from long-term investments like schools, highways, and clean power grids.</li>
+</ol>
+<div data-chart="oil"></div>
+<h2>4. Three Smarter Policy Fixes</h2>
+<p>Since hiking interest rates cannot fix a shipping bottleneck, policymakers have to combine steady central banking with careful budget choices:</p>
+<ol>
+<li><strong>Focus on core inflation, not just pump prices.</strong> Central banks should stay calm during the initial jump in petrol prices and only raise rates if "core inflation" (prices excluding volatile food and fuel) starts creeping up across the wider economy (Reserve Bank of India, 2026).</li>
+<li><strong>Use targeted cash transfers instead of blanket tax cuts.</strong> Cutting fuel taxes for everyone is expensive and mostly helps wealthier households who drive more. Sending direct cash support to lower-income families protects the people who need help most at a much lower budget cost (Gourinchas et al., 2026).</li>
+<li><strong>Treat renewable energy as inflation protection.</strong> Building more domestic solar and wind power helps the climate, but for an oil-importing country it also permanently reduces how vulnerable the economy is to maritime chokepoints (International Monetary Fund, 2026a).</li>
+</ol>
+<h2>5. Conclusion</h2>
+<p>The Strait of Hormuz crisis shows that macroeconomics is closely tied to trade routes and supply chains, not just equations on a whiteboard. When a geopolitical chokepoint squeezes global oil supply, aggressive interest rate hikes risk hurting growth without fixing the root problem. A better response pairs patient monetary policy with targeted help for vulnerable families and long-term investment in clean, domestic energy.</p>
+<h2>References</h2>
+<ul class="refs">
+<li>Blanchard, O. J., &amp; Galí, J. (2007). The Macroeconomic Effects of Oil Shocks: Why Are the 2000s So Different from the 1970s? (NBER Working Paper No. 13368). National Bureau of Economic Research.</li>
+<li>Gourinchas, P.-O., Gracia, B., Prady, D., &amp; Valdés, R. (2026, 20 May). Responding to the energy and food price shock: Getting the policy details right. IMF Blog. https://www.imf.org/en/blogs/articles/2026/05/20/responding-to-the-energy-and-food-price-shock-getting-the-policy-details-right</li>
+<li>International Energy Agency. (n.d.). Strait of Hormuz. https://www.iea.org/about/oil-security-and-emergency-response/Strait-of-hormuz</li>
+<li>International Monetary Fund. (2026a, 14 April). War darkens global economic outlook and reshapes policy priorities. IMF Blog. https://www.imf.org/en/blogs/articles/2026/04/14/war-darkens-global-economic-outlook-and-reshapes-policy-priorities</li>
+<li>PRS Legislative Research. (2026). Demand for Grants 2026-27 Analysis: Petroleum and Natural Gas. https://prsindia.org/files/budget/budget_parliament/2026/DfG_Analysis_2026-27-PNG.pdf</li>
+<li>Reserve Bank of India. (2026, April). Monetary Policy Report. Mumbai: Reserve Bank of India. https://www.rbi.org.in/ScriptS/PublicationsView.aspx?id=23800</li>
+<li>United Nations Department of Economic and Social Affairs. (2026, May). World Economic Situation and Prospects as of mid-2026. New York: United Nations.</li>
+<li>U.S. Energy Information Administration. (2025, 16 June). Amid regional conflict, the Strait of Hormuz remains critical oil chokepoint. Today in Energy. https://www.eia.gov/todayinenergy/detail.php?id=65504</li>
+</ul>`
+  },
+  {
+    id: "article-2",
+    title: "The Founder Discount: Key-Man Risk, Vendor Financing, and Governance in the Post-Huang Nvidia Crisis",
+    category: "Financial Economics",
+    author: "Naisha Malik",
+    date: "2026",
+    readingTime: "5 min read",
+    image: U + "photo-1611974789855-9c2a0a7236a3" + Q,
+    excerpt: "When longtime CEO Jensen Huang stepped down on 12 November 2026, amid a board investigation linked to a Singapore-based customer, Nvidia's shares fell by more than 12 per cent in early trading. Days later the company reported record quarterly revenue of $115.8 billion, and the SEC was reported to have opened a civil probe. Using key-man risk, circular vendor financing, and principal-agent theory, this essay explains why markets slashed Nvidia's valuation and what the episode teaches us about corporate governance in the AI boom.",
+    takeaway: "Markets priced lost founder trust and unclear revenue quality, not earnings.",
+    tags: ["Financial Economics", "Corporate Governance", "AI", "Valuation"],
+    takeaways: [
+      { label: "The Shock", text: "Jensen Huang stepped down on 12 November 2026 amid a board investigation, and the shares fell by more than 12% before record revenue of $115.8 billion was reported on 17 November." },
+      { label: "Economic Mechanism", text: "Investors lost the founder premium and demanded a higher equity risk premium, while circular vendor financing and information asymmetry made the quality of revenue hard to judge." },
+      { label: "Governance Fix", text: "Stronger independent boards, clearer geographic revenue reporting, and transparent succession planning." }
+    ],
+    notes: `<p class="font-semibold text-forest">Data sources</p><ul class="list-disc ml-5 space-y-1"><li>Share fall: Globes (early trading, 12 November 2026); market value lost: Al Jazeera.</li><li>Revenue: RTTNews, summarising NVIDIA's 17 November 2026 results release.</li><li>SEC probe: reported by the Wall Street Journal, seen here through TweakTown (a secondary source).</li></ul><p class="font-semibold text-forest">Analytical notes</p><ul class="list-disc ml-5 space-y-1"><li>Reports about Huang's relationships and Megaspeed are allegations and investigations, not findings. Megaspeed has been reported as denying wrongdoing.</li><li>Linking the share fall to key-man risk and opaque financing is my interpretation; other factors may have contributed.</li><li>The story is still developing; this essay reflects reporting to 20 November 2026.</li></ul>`,
+    content: `
+<p>In standard finance classes, a company's stock price is supposed to move with its earnings: if sales smash expectations, the stock goes up. Nvidia's leadership crisis shows how a share price can fall hard even when the earnings are excellent.</p>
+<h2>1. Record Revenue, Plunging Stock</h2>
+<p>On 12 November 2026, Jensen Huang stepped down as Nvidia's CEO and left its board, days after the board opened an independent investigation into reports about his relationship with an executive linked to Megaspeed, a Singapore-based Nvidia customer that is itself under investigation over alleged chip diversion to China (Reuters, 2026; Al Jazeera, 2026). Shares fell by more than 12 per cent in early trading (Globes, 2026), and Nvidia reportedly lost over $600 billion in market value (Al Jazeera, 2026). Five days later the company reported record quarterly revenue of $115.8 billion, up 103 per cent on a year earlier (RTTNews, 2026). The order of events is the point: the sell-off came before the earnings, and the earnings did not cancel it. The Wall Street Journal then reported that the SEC had opened a civil investigation into whether Nvidia's disclosures misled investors (TweakTown, 2026). To understand why investors panicked while money was pouring in, you have to look past the income statement and ask how much of Nvidia's value rested on trust and leadership stability.</p>
+<div data-chart="shock"></div>
+<h2>2. The High Cost of "Key-Man" Risk</h2>
+<p>In corporate finance, <span class="term" tabindex="0" data-def="The danger that a company's strategy, partnerships and investor confidence depend so heavily on one person that losing them threatens the business.">key-man risk</span> happens when a company's strategy, partnerships, and investor confidence depend so heavily on a single leader that losing them threatens the entire business (Bennedsen et al., 2020).</p>
+<p>Huang co-founded Nvidia in 1993 and led it for 33 years. He was not just its CEO but the public face of the AI boom, and stocks moved at the mere mention of his name. When a founder-CEO becomes practically irreplaceable, investors quietly bake a "founder premium" into the stock price. The moment Huang stepped down unexpectedly, that premium came under threat. Even if Nvidia's chips remained the best on the market, investors had reason to demand a higher equity risk premium to hold the stock during an uncertain leadership transition, with CFO Colette Kress named interim CEO (Reuters, 2026).</p>
+<h2>3. How Vendor Financing Blurred Real Demand</h2>
+<p>A second reason markets reacted so sharply is <span class="term" tabindex="0" data-def="A situation where one side of a deal, here company insiders, knows much more than the other side, here outside investors.">information asymmetry</span>, which is when company insiders know far more about the true health of sales than outside investors do (Akerlof, 1970).</p>
+<p>In September 2025 Nvidia said it would invest as much as $100 billion in OpenAI to help fund data centres built around Nvidia chips, and analysts immediately questioned whether this kind of <span class="term" tabindex="0" data-def="When a supplier funds its own customers, who then spend that money buying the supplier's products, so demand may be partly self-created.">circular vendor financing</span> could give investors an inflated picture of true AI demand (Business Standard, 2025). The concern is that revenue funded by the seller's own capital is harder to read than revenue from customers paying with their own profits. Reports that Nvidia had stopped separately disclosing its sales to Singapore, where Megaspeed is based, added to the opacity (TweakTown, 2026).</p>
+<p>When the SEC story broke, investors had to ask whether all of that $115.8 billion in revenue was as clean and repeatable as it looked on paper. In financial markets, uncertainty about accounting transparency almost always triggers a valuation discount.</p>
+<h2>4. The Principal-Agent Lesson for Tech Giants</h2>
+<p>Economists Michael Jensen and William Meckling (1976) described the <span class="term" tabindex="0" data-def="The conflict that arises when managers (agents) do not always act in the best long-term interest of shareholders (principals).">principal-agent problem</span>: managers (agents) do not always act in the best long-term interest of shareholders (principals) unless strong oversight keeps them in check.</p>
+<p>When a tech stock is skyrocketing, shareholders rarely complain about board oversight or complex financing deals. Governance cracks only show up when a shock hits. The episode points to three governance standards:</p>
+<ol>
+<li>Stronger independent boards that actively audit complex customer-financing deals before they grow too large.</li>
+<li>Clearer geographic revenue reporting so investors know exactly where chips are sold versus where they are actually deployed.</li>
+<li>Transparent succession planning so a single executive departure cannot erase hundreds of billions in market value in a single day.</li>
+</ol>
+<h2>5. Conclusion</h2>
+<p>Nvidia's post-Huang sell-off is a reminder that in financial economics, how a company earns its revenue matters as much as how much it earns. Dominant technology can drive extraordinary profits for years, but lasting market value still depends on transparent accounting, independent board oversight, and strong corporate governance. Many of the facts here are still developing, so this essay reflects reporting up to 20 November 2026.</p>
+<h2>References</h2>
+<ul class="refs">
+<li>Akerlof, G. A. (1970). The Market for "Lemons": Quality Uncertainty and the Market Mechanism. Quarterly Journal of Economics, 84(3), 488-500.</li>
+<li>Al Jazeera. (2026, 12 November). Nvidia CEO Jensen Huang steps down amid spy scandal and market loss. https://www.aljazeera.com/news/2026/11/12/ai-titan-jensen-huang-out-as-nvidia-ceo</li>
+<li>Bennedsen, M., Pérez-González, F., &amp; Wolfenzon, D. (2020). Do CEOs Matter? Evidence from Hospitalization Events. Journal of Finance, 75(4), 1877-1911.</li>
+<li>Business Standard. (2025, September). Nvidia-OpenAI deal sparks concerns over circular financing in AI boom. https://www.business-standard.com/amp/companies/news/nvidia-openai-deal-sparks-concerns-over-circular-financing-in-ai-boom-125092401589_1.html</li>
+<li>Globes. (2026, 12 November). Nvidia founder and CEO Jensen Huang steps down. https://en.globes.co.il/en/article-nvidia-founder-and-ceo-jensen-huang-steps-down-1001563256</li>
+<li>Jensen, M. C., &amp; Meckling, W. H. (1976). Theory of the Firm: Managerial Behavior, Agency Costs and Ownership Structure. Journal of Financial Economics, 3(4), 305-360.</li>
+<li>Reuters. (2026, 12 November). Nvidia CEO Jensen Huang steps down in body blow to AI boom. TimesLIVE. https://www.timeslive.co.za/news/business/2026-11-12-nvidia-ceo-jensen-huang-steps-down-in-body-blow-to-ai-boom/</li>
+<li>RTTNews. (2026, 17 November). NVIDIA Q3 profit more than doubles. https://www.rttnews.com/3715618/nvidia-q3-profit-more-than-doubles.aspx</li>
+<li>TweakTown. (2026, November). SEC opens investigation into NVIDIA over whether investors were misled to boost earnings (citing the Wall Street Journal).</li>
+</ul>`
+  },
+  { id: "soon-behavioural", status: "soon", title: "Coming soon", category: "Behavioural Economics", image: U + "photo-1507842217343-583bb7270b66" + Q, excerpt: "A new piece in Behavioural Economics will appear here." }
+];
 // ▲▲▲  END OF ARTICLES LIST  ▲▲▲
 
 
-/* =====================================================================
-   EVERYTHING BELOW POWERS THE WEBSITE. You do not need to edit it.
-   ===================================================================== */
+/* ===== Everything below powers the website. You do not need to edit it. ===== */
+const categories = ["All","Macroeconomics","Financial Economics","Behavioural Economics"];
+const categoryColors = { "Macroeconomics":"#C46B48", "Financial Economics":"#C9922B", "Behavioural Economics":"#A8556A" };
+const interests = [
+  ["Behavioural Economics","How psychology shapes the decisions people actually make."],
+  ["Development Economics","What helps people and economies move out of poverty."],
+  ["Public Policy","Weighing the real effects of the policies that govern daily life."],
+  ["Econometrics","Learning to draw careful conclusions from economic data."],
+  ["Economic Inequality","Why resources and opportunities are distributed as they are."],
+  ["Political Economy","How institutions and incentives shape economic outcomes."],
+  ["Quantitative Methods","The mathematical and statistical tools behind good analysis."],
+  ["Economics of Education","How schooling affects opportunity and later life outcomes."]
+];
+// Research pipeline: status must be "Researching" or "Drafting".
+const pipeline = [
+  { title: "Nvidia Corporate Governance & Key-Man Risk", status: "Drafting" },
+  { title: "Agentic AI & India's IT Labour Market", status: "Researching" }
+];
+const steps = ["Researching", "Drafting", "Published"];
 
-const categories = ["All", "Behavioural Economics", "Macroeconomics", "Public Policy", "Econometrics", "Development Economics"];
+const chartHTML = `
+<figure class="my-10 bg-ivory border border-rule border-t-[5px] border-t-terra p-5 shadow-soft" style="font-size:16px;line-height:1.5">
+  <div class="grid grid-cols-3 gap-3 text-center mb-5">
+    <div><p class="font-serif text-3xl text-terra">20%</p><p class="text-xs">Global oil transit<br><span class="opacity-60">EIA, 2025</span></p></div>
+    <div><p class="font-serif text-3xl text-terra">85%+</p><p class="text-xs">India crude import reliance<br><span class="opacity-60">PRS, 2026</span></p></div>
+    <div><p class="font-serif text-3xl text-terra">3.9%</p><p class="text-xs">Global inflation forecast<br><span class="opacity-60">UN DESA, mid-2026</span></p></div>
+  </div>
+  <svg id="adas-svg" viewBox="0 0 360 250" class="w-full max-w-md mx-auto block" role="img" aria-label="AD-AS diagram: the short-run aggregate supply curve shifts inward, raising the price level and lowering output">
+    <path d="M50 15V220H330" fill="none" stroke="#1D2926" stroke-width="1.5"/>
+    <text x="190" y="242" font-size="11" fill="#3A4642" text-anchor="middle">Real GDP</text>
+    <text x="12" y="120" font-size="11" fill="#3A4642" transform="rotate(-90 12 120)" text-anchor="middle">Price level</text>
+    <path d="M70 50L310 210" stroke="#556B5E" stroke-width="2.5" fill="none"/><text x="312" y="205" font-size="11" fill="#556B5E">AD</text>
+    <path d="M90 210L290 50" stroke="#1D2926" stroke-width="2.5" fill="none"/><text x="292" y="48" font-size="11" fill="#1D2926">SRAS₁</text>
+    <path id="sras2" d="M50 210L250 50" stroke="#C46B48" stroke-width="2.5" stroke-dasharray="6 4" fill="none"/><text id="sras2l" x="252" y="48" font-size="11" fill="#C46B48" opacity="0">SRAS₂</text>
+    <circle cx="190" cy="130" r="5" fill="#1D2926"/><text x="198" y="146" font-size="11" fill="#1D2926">E₁</text>
+    <g id="eq2"><circle cx="168" cy="115" r="5" fill="#C46B48"/><text x="120" y="108" font-size="11" fill="#C46B48">E₂</text>
+      <path d="M50 115H168V220M50 130H190V220" stroke="#C46B48" stroke-width="1" stroke-dasharray="3 3" fill="none"/></g>
+  </svg>
+  <p id="adas-caption" class="text-sm text-center mt-3">Initial equilibrium at E₁.</p>
+  <div class="text-center mt-3"><button id="adas-btn" type="button" aria-pressed="false" class="text-sm font-semibold border border-terra text-terra px-4 py-2 hover:bg-terra hover:text-ivory transition-colors">Show the supply shock</button></div>
+  <figcaption class="text-xs text-center mt-4 opacity-70">An adverse supply shock moves SRAS inward: the price level rises while output falls.</figcaption>
+</figure>`;
 
-// Each category has its own warm tone (used for the card strip, banner and glow).
-const categoryColors = {
-  "Behavioural Economics": "#A8556A",
-  "Macroeconomics": "#C46B48",
-  "Public Policy": "#556B5E",
-  "Econometrics": "#C9922B",
-  "Development Economics": "#8A6A4F"
-};
+const shockHTML = `
+<figure class="my-10 bg-ivory border border-rule border-t-[5px] border-t-[#C9922B] p-5 shadow-soft" style="font-size:16px;line-height:1.5">
+  <p class="font-serif text-xl text-forest text-center mb-4">Valuation &amp; Governance Shock</p>
+  <div class="grid grid-cols-2 gap-3 text-center mb-6">
+    <div class="bg-linen p-3"><p class="font-serif text-3xl text-sage">$115.8B</p><p class="text-xs">Record quarterly revenue (17 Nov)</p></div>
+    <div class="bg-linen p-3"><p class="font-serif text-3xl text-terra">12%+</p><p class="text-xs">Share drop on exit news</p></div>
+  </div>
+  <p class="text-xs font-semibold tracking-wide text-center mb-2">THE CIRCULAR VENDOR-FINANCING LOOP</p>
+  <svg viewBox="0 0 360 110" class="w-full max-w-md mx-auto block" role="img" aria-label="Nvidia funds AI customers, who use the funds to buy Nvidia chips, which shows up as revenue">
+    <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#C46B48"/></marker></defs>
+    <rect x="5" y="30" width="100" height="44" fill="#F7F3EB" stroke="#1D2926"/><text x="55" y="56" font-size="12" text-anchor="middle" fill="#1D2926">Nvidia</text>
+    <rect x="130" y="30" width="100" height="44" fill="#F7F3EB" stroke="#1D2926"/><text x="180" y="50" font-size="11" text-anchor="middle" fill="#1D2926">AI startups &amp;</text><text x="180" y="64" font-size="11" text-anchor="middle" fill="#1D2926">cloud providers</text>
+    <rect x="255" y="30" width="100" height="44" fill="#F7F3EB" stroke="#1D2926"/><text x="305" y="56" font-size="12" text-anchor="middle" fill="#1D2926">Chip orders</text>
+    <path d="M105 52H128M230 52H253" stroke="#C46B48" stroke-width="2" marker-end="url(#ah)"/>
+    <path d="M305 74V100H55V76" fill="none" stroke="#C46B48" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+    <text x="55" y="22" font-size="10" fill="#556B5E" text-anchor="middle">credits &amp; equity</text><text x="305" y="22" font-size="10" fill="#556B5E" text-anchor="middle">reported revenue</text>
+  </svg>
+  <div class="grid sm:grid-cols-2 gap-3 mt-6 text-sm">
+    <div class="border-l-[3px] border-terra bg-linen px-4 py-3"><p class="font-semibold text-forest">Key-Man Risk</p>The founder premium disappears and investors demand a higher equity risk premium.</div>
+    <div class="border-l-[3px] border-sage bg-linen px-4 py-3"><p class="font-semibold text-forest">Vendor Financing Risk</p>Self-funded demand clouds revenue quality and deepens information asymmetry.</div>
+  </div>
+</figure>`;
 
-let activeCategory = "All";
-let lastFocusedElement = null;
 
-const filtersEl = document.getElementById("filters");
-const listEl = document.getElementById("article-list");
-const readerEl = document.getElementById("reader");
-
-function escapeHTML(text) {
-  const div = document.createElement("div");
-  div.textContent = text == null ? "" : String(text);
-  return div.innerHTML;
+const $ = (id) => document.getElementById(id);
+const oilHTML = `
+<figure class="my-10 bg-ivory border border-rule border-t-[5px] border-t-terra p-5 shadow-soft" style="font-size:16px;line-height:1.5">
+  <p class="font-serif text-xl text-forest text-center">Oil Shock Impact: India</p>
+  <p class="text-xs text-center opacity-70 mt-1">Illustrative simulation, not a forecast</p>
+  <div class="mt-5">
+    <label for="oil-slider" class="flex justify-between text-sm font-semibold text-forest"><span>Crude oil price</span><span id="oil-val">$100 / bbl</span></label>
+    <input id="oil-slider" type="range" min="70" max="130" step="5" value="100" class="w-full mt-2" style="accent-color:#C46B48">
+    <div class="flex justify-between text-xs opacity-60"><span>$70</span><span>$130</span></div>
+  </div>
+  <div id="oil-out" aria-live="polite" class="grid sm:grid-cols-2 gap-4 mt-5">
+    <div class="bg-linen p-4"><p class="text-xs font-semibold tracking-wide text-forest">HEADLINE INFLATION PRESSURE</p><p id="oil-inf" class="font-serif text-3xl text-terra mt-1"></p><div class="h-2 bg-rule mt-2"><div id="oil-inf-bar" class="h-2 bg-terra" style="transition:width .3s"></div></div><p id="oil-inf-lbl" class="text-xs mt-2"></p></div>
+    <div class="bg-linen p-4"><p class="text-xs font-semibold tracking-wide text-forest">IMPORT-BILL STRAIN</p><p id="oil-bill" class="font-serif text-3xl text-terra mt-1"></p><div class="h-2 bg-rule mt-2"><div id="oil-bill-bar" class="h-2 bg-sage" style="transition:width .3s"></div></div><p id="oil-bill-lbl" class="text-xs mt-2"></p></div>
+  </div>
+  <p class="text-xs mt-4 opacity-70">Assumptions: $70 baseline; about 4.6 million barrels imported a day; each 10% rise in crude adds about 0.3 percentage points to headline inflation (an illustrative rule of thumb); rupee held constant. Both figures are changes against the $70 baseline.</p>
+</figure>`;
+function wireOil() {
+  const slider = $("oil-slider");
+  const update = () => {
+    const price = +slider.value, base = 70;
+    const inf = 0.3 * ((price / base - 1) / 0.1);                 // percentage points
+    const extra = (price - base) * (4.6e6 * 365) / 1e9;            // $ billion a year
+    const baseBill = base * (4.6e6 * 365) / 1e9;
+    $("oil-val").textContent = "$" + price + " / bbl";
+    $("oil-inf").textContent = "+" + inf.toFixed(1) + " pp";
+    $("oil-bill").textContent = "+$" + extra.toFixed(0) + "B a year";
+    $("oil-inf-bar").style.width = Math.min(100, inf / 3 * 100) + "%";
+    $("oil-bill-bar").style.width = Math.min(100, extra / 110 * 100) + "%";
+    $("oil-inf-lbl").textContent = inf < 0.6 ? "Low pressure" : inf < 1.4 ? "Moderate pressure" : inf < 2.2 ? "High pressure" : "Severe pressure";
+    $("oil-bill-lbl").textContent = "+" + (extra / baseBill * 100).toFixed(0) + "% on the baseline bill. " + (extra < 20 ? "Manageable" : extra < 50 ? "Elevated" : extra < 80 ? "Heavy" : "Severe") + " strain on the current account.";
+  };
+  slider.addEventListener("input", update);
+  update();
 }
 
+/* Drawer */
+function setNotes(open) {
+  $("notes-wrap").classList.toggle("open", open);
+  $("notes-btn").setAttribute("aria-expanded", open);
+}
+$("notes-btn").onclick = () => setNotes(!$("notes-wrap").classList.contains("open"));
+
+/* Toast + copy helpers */
+function copyText(text, msg) {
+  const done = () => { const t = $("toast"); t.textContent = msg; t.classList.remove("hidden"); clearTimeout(window.__toastTimer); window.__toastTimer = setTimeout(() => t.classList.add("hidden"), 2000); };
+  const fallback = () => { const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); done(); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+}
+$("copy-email").onclick = () => copyText("naishamalik01@gmail.com", "Email copied!");
+
+let activeCategory = "All", pipeFilter = "All", lastFocused = null;
+const readerEl = $("reader");
+function esc(t) { const d = document.createElement("div"); d.textContent = t == null ? "" : String(t); return d.innerHTML; }
+
+/* Static content built from the lists above */
+$("interest-list").innerHTML = interests.map(i =>
+  '<div class="bg-linen border-l-[3px] border-sage px-6 py-5"><dt class="font-serif text-xl font-medium text-forest">' + i[0] + '</dt><dd class="mt-1 text-sm leading-relaxed">' + i[1] + '</dd></div>').join("");
+
+/* Category filters + article cards */
+
+/* Small illustration behind each card banner (shows if a photo does not load) */
+function art(category) {
+  const g = {
+    "Macroeconomics": '<circle cx="320" cy="45" r="22" fill="currentColor" opacity=".35"/><path d="M0 112q25-12 50 0t50 0 50 0 50 0 50 0 50 0 50 0 50 0M0 130q25-12 50 0t50 0 50 0 50 0 50 0 50 0 50 0 50 0" fill="none" stroke="currentColor" stroke-width="2"/><path d="M110 98h150l-14 14H122zM200 84h40v14h-40z" fill="currentColor"/>',
+    "Financial Economics": '<g stroke="currentColor" stroke-width="2" fill="currentColor"><path d="M60 40v90M110 60v70M160 30v80M210 55v85M260 35v75M310 20v70" fill="none"/><rect x="52" y="60" width="16" height="40"/><rect x="102" y="80" width="16" height="30" opacity=".4"/><rect x="152" y="50" width="16" height="40"/><rect x="202" y="75" width="16" height="45" opacity=".4"/><rect x="252" y="50" width="16" height="35"/><rect x="302" y="35" width="16" height="40"/></g>',
+    "Behavioural Economics": '<g fill="none" stroke="currentColor" stroke-width="2"><circle cx="300" cy="75" r="55"/><circle cx="300" cy="75" r="35"/><circle cx="300" cy="75" r="14" fill="currentColor"/><path d="M60 110L140 50L220 100L260 70"/></g><g fill="currentColor"><circle cx="60" cy="110" r="6"/><circle cx="140" cy="50" r="6"/><circle cx="220" cy="100" r="6"/></g>'
+  };
+  return '<svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;color:var(--c);opacity:.5">' + (g[category] || "") + '</svg>';
+}
 function renderFilters() {
-  filtersEl.innerHTML = "";
-  categories.forEach(function (name) {
-    const button = document.createElement("button");
-    const isActive = name === activeCategory;
-    button.type = "button";
-    button.textContent = name;
-    button.setAttribute("aria-pressed", isActive ? "true" : "false");
-    button.className = "text-sm font-medium px-4 py-2 rounded-full border transition-colors " +
-      (isActive ? "bg-forest text-linen border-forest" : "bg-ivory text-body border-rule hover:border-terra hover:text-terra");
-    button.addEventListener("click", function () {
-      activeCategory = name;
-      renderFilters();
-      renderArticles();
-    });
-    filtersEl.appendChild(button);
+  $("filters").innerHTML = "";
+  categories.forEach(name => {
+    const b = document.createElement("button"), on = name === activeCategory;
+    b.type = "button"; b.textContent = name; b.setAttribute("aria-pressed", on);
+    b.className = "text-sm font-medium px-4 py-2 rounded-full border transition-colors " + (on ? "bg-forest text-linen border-forest" : "bg-ivory border-rule hover:border-terra hover:text-terra");
+    b.onclick = () => { activeCategory = name; renderFilters(); renderArticles(); };
+    $("filters").appendChild(b);
   });
 }
-
 function renderArticles() {
-  const visible = articles.filter(function (a) {
-    return activeCategory === "All" || a.category === activeCategory;
-  });
-
-  if (visible.length === 0) {
+  const list = $("article-list");
+  const visible = articles.filter(a => activeCategory === "All" || a.category === activeCategory);
+  if (!visible.length) {
     const label = activeCategory === "All" ? "Research & Writing" : activeCategory;
-    listEl.innerHTML =
-      '<div class="empty-state py-20 md:py-24 px-6 text-center">' +
-        '<p class="font-serif italic text-3xl text-forest">Articles coming soon.</p>' +
-        '<p class="mt-3 text-sm">New writing in ' + escapeHTML(label) + ' will appear here.</p>' +
-      '</div>';
+    list.innerHTML = '<div class="empty-state py-20 px-6 text-center"><p class="font-serif italic text-3xl text-forest">Articles coming soon.</p><p class="mt-3 text-sm">New writing in ' + esc(label) + ' will appear here.</p></div>';
     return;
   }
-
-  listEl.innerHTML = '<div class="grid md:grid-cols-2 gap-6" id="card-grid"></div>';
-  const grid = document.getElementById("card-grid");
-
-  visible.forEach(function (article) {
-    const color = categoryColors[article.category] || "#556B5E";
+  list.innerHTML = '<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="grid"></div>';
+  visible.forEach(a => {
+    const soon = a.status === "soon", c = categoryColors[a.category] || "#556B5E";
     const card = document.createElement("article");
-    card.className = "card shadow-soft flex flex-col";
-    card.style.setProperty("--c", color);
-
-    const tags = (article.tags || []).map(function (t) {
-      return '<li class="px-2.5 py-1 rounded-full bg-sage/10 text-sage text-xs font-medium">' + escapeHTML(t) + '</li>';
-    }).join("");
-    const takeaway = article.takeaway
-      ? '<div class="abstract mt-5 px-4 py-3 text-sm leading-relaxed"><p class="font-semibold text-forest text-xs tracking-wide mb-1">Key takeaway</p>' + escapeHTML(article.takeaway) + '</div>'
-      : '';
-
-    card.innerHTML =
-      '<div class="card-banner">' + escapeHTML(article.category) + '</div>' +
-      '<button type="button" class="text-left px-6 py-6 flex-1 flex flex-col" aria-label="Read article: ' + escapeHTML(article.title) + '">' +
-        '<p class="text-xs text-body/70">' + escapeHTML(article.date) + ' &nbsp;·&nbsp; ' + escapeHTML(article.readingTime) + '</p>' +
-        '<h3 class="mt-2 font-serif font-medium text-2xl leading-snug">' + escapeHTML(article.title) + '</h3>' +
-        '<p class="mt-3 text-sm leading-relaxed">' + escapeHTML(article.excerpt) + '</p>' +
-        takeaway +
-        (tags ? '<ul class="mt-5 flex flex-wrap gap-2">' + tags + '</ul>' : '') +
-      '</button>';
-
-    card.querySelector("button").addEventListener("click", function () { openReader(article); });
-    grid.appendChild(card);
+    card.className = "card shadow-soft flex flex-col " + (soon ? "" : "live");
+    card.style.setProperty("--c", c);
+    const img = a.image ? '<img src="' + a.image + '" alt="" loading="lazy" onerror="this.remove()">' : "";
+    const tags = (a.tags || []).map(t => '<li class="px-2.5 py-1 rounded-full bg-sage/10 text-sage text-xs font-medium">' + esc(t) + '</li>').join("");
+    const box = a.takeaway ? '<div class="abstract mt-4 px-4 py-3 text-sm leading-relaxed"><p class="font-semibold text-forest text-xs tracking-wide mb-1">Key takeaway</p>' + esc(a.takeaway) + '</div>' : "";
+    const inner =
+      '<p class="text-xs font-semibold tracking-wide" style="color:' + c + '">' + esc(a.category).toUpperCase() + (soon ? "" : ' &nbsp;·&nbsp; ' + esc(a.date) + ' &nbsp;·&nbsp; ' + esc(a.readingTime)) + '</p>' +
+      '<h3 class="mt-2 font-serif font-medium text-2xl leading-snug ' + (soon ? "italic" : "") + '">' + esc(a.title) + '</h3>' +
+      '<p class="mt-3 text-sm leading-relaxed">' + esc(a.excerpt) + '</p>' + (soon ? "" : box + (tags ? '<ul class="mt-4 flex flex-wrap gap-2">' + tags + '</ul>' : ""));
+    card.innerHTML = '<div class="banner">' + art(a.category) + img + '</div>' + (soon
+      ? '<div class="px-6 py-6 flex-1">' + inner + '</div>'
+      : '<button type="button" class="text-left px-6 py-6 flex-1" aria-label="Read article: ' + esc(a.title) + '">' + inner + '</button>');
+    if (!soon) card.querySelector("button").onclick = () => openReader(a);
+    $("grid").appendChild(card);
   });
 }
 
-function openReader(article) {
-  lastFocusedElement = document.activeElement;
-  document.getElementById("reader-meta").textContent = article.category + "  ·  " + article.date + "  ·  " + article.readingTime;
-  document.getElementById("reader-title").textContent = article.title;
-  document.getElementById("reader-tags").innerHTML = (article.tags || []).map(function (t) {
-    return '<li class="px-2.5 py-1 rounded-full bg-sage/10 font-medium">' + escapeHTML(t) + '</li>';
-  }).join("");
-  document.getElementById("reader-content").innerHTML = article.content || "";
+/* Research pipeline */
+function renderPipeline() {
+  $("pipe-filters").innerHTML = "";
+  ["All", "Drafting", "Researching"].forEach(s => {
+    const b = document.createElement("button"), on = s === pipeFilter;
+    b.type = "button"; b.textContent = s; b.setAttribute("aria-pressed", on);
+    b.className = "text-xs font-semibold px-3.5 py-1.5 rounded-full border transition-colors " + (on ? "bg-sage text-linen border-sage" : "bg-ivory border-rule hover:border-terra hover:text-terra");
+    b.onclick = () => { pipeFilter = s; renderPipeline(); };
+    $("pipe-filters").appendChild(b);
+  });
+  const shown = pipeline.filter(p => pipeFilter === "All" || p.status === pipeFilter);
+  $("pipe-list").innerHTML = shown.length ? shown.map(p =>
+    '<li class="bg-ivory border border-rule border-l-[4px] border-l-terra p-5 shadow-soft"><p class="font-serif text-xl font-medium text-forest">' + esc(p.title) + '</p>' +
+    '<ol class="mt-4 flex gap-2 text-xs">' + steps.map(s => '<li class="px-2.5 py-1 rounded-full border ' + (s === p.status ? "bg-terra text-ivory border-terra font-semibold" : "border-rule opacity-60") + '">' + s + '</li>').join("") + '</ol></li>').join("")
+    : '<li class="text-sm italic">No papers with this status right now.</li>';
+}
+
+/* Reader */
+function openReader(a) {
+  lastFocused = document.activeElement;
+  $("reader-meta").textContent = a.category + "  ·  " + a.date + "  ·  " + a.readingTime;
+  $("reader-title").textContent = a.title;
+  $("reader-author").textContent = a.author ? "By " + a.author : "";
+  $("reader-tags").innerHTML = (a.tags || []).map(t => '<li class="px-2.5 py-1 rounded-full bg-sage/10 font-medium">' + esc(t) + '</li>').join("");
+  $("reader-takeaways").innerHTML = a.takeaways ? '<div class="border border-forest bg-ivory p-6 shadow-soft"><p class="font-serif text-xl font-medium text-forest mb-3">Key Takeaways</p><dl class="space-y-3 text-sm leading-relaxed">' +
+    a.takeaways.map(t => '<div><dt class="text-xs font-semibold tracking-wide text-terra uppercase">' + esc(t.label) + '</dt><dd>' + esc(t.text) + '</dd></div>').join("") + '</dl></div>' : "";
+  $("reader-content").innerHTML = a.content || "";
+  const slot = $("reader-content").querySelector('[data-chart="adas"]');
+  if (slot) { slot.outerHTML = chartHTML; wireChart(); }
+  const slot2 = $("reader-content").querySelector('[data-chart="shock"]');
+  if (slot2) slot2.outerHTML = shockHTML;
+  const slot3 = $("reader-content").querySelector('[data-chart="oil"]');
+  if (slot3) { slot3.outerHTML = oilHTML; wireOil(); }
+  $("notes-btn").classList.toggle("hidden", !a.notes);
+  $("notes-body").innerHTML = a.notes || "";
+  setNotes(false);
+  $("cite-btn").onclick = () => copyCitation(a);
   readerEl.classList.remove("hidden");
   document.body.style.overflow = "hidden";
-  readerEl.scrollTop = 0;
-  document.getElementById("reader-close").focus();
+  readerEl.scrollTop = 0; updateProgress();
+  $("reader-close").focus();
 }
-
 function closeReader() {
-  readerEl.classList.add("hidden");
-  document.body.style.overflow = "";
-  if (lastFocusedElement && document.contains(lastFocusedElement)) lastFocusedElement.focus();
+  readerEl.classList.add("hidden"); document.body.style.overflow = "";
+  if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+}
+function wireChart() {
+  const btn = $("adas-btn"), svg = $("adas-svg");
+  btn.onclick = () => {
+    const on = svg.classList.toggle("shock");
+    btn.setAttribute("aria-pressed", on);
+    btn.textContent = on ? "Reset" : "Show the supply shock";
+    $("sras2l").setAttribute("opacity", on ? 1 : 0);
+    $("adas-caption").textContent = on ? "SRAS shifts inward: the price level rises (E₁ to E₂) while output falls." : "Initial equilibrium at E₁.";
+  };
+}
+function updateProgress() {
+  const max = readerEl.scrollHeight - readerEl.clientHeight;
+  $("progress").style.width = (max > 0 ? (readerEl.scrollTop / max) * 100 : 0) + "%";
+}
+readerEl.addEventListener("scroll", updateProgress);
+let size = 17;
+function setSize(d) { size = Math.min(24, Math.max(14, size + d)); $("reader-content").style.fontSize = size + "px"; }
+$("fs-down").onclick = () => setSize(-1); $("fs-up").onclick = () => setSize(1);
+
+/* Citation + toast */
+function copyCitation(a) {
+  const text = (a.author || "Malik, N.").replace(/^Naisha Malik$/, "Malik, N.") + " (" + a.date + "). " + a.title + ". Personal academic portfolio of Naisha Malik.";
+  copyText(text, "Copied!");
 }
 
-document.getElementById("reader-close").addEventListener("click", closeReader);
-document.getElementById("reader-back").addEventListener("click", closeReader);
-document.getElementById("reader-back-bottom").addEventListener("click", closeReader);
-
-document.addEventListener("keydown", function (event) {
+["reader-close","reader-back","reader-back-bottom"].forEach(id => $(id).onclick = closeReader);
+document.addEventListener("keydown", e => {
   const open = !readerEl.classList.contains("hidden");
-  if (open && event.key === "Escape") { closeReader(); return; }
-  if (open && event.key === "Tab") {
-    const f = readerEl.querySelectorAll("a[href], button");
+  if (open && e.key === "Escape") { closeReader(); return; }
+  if (open && e.key === "Tab") {
+    const f = readerEl.querySelectorAll("a[href], button, .term");
     if (!f.length) return;
-    if (event.shiftKey && document.activeElement === f[0]) { event.preventDefault(); f[f.length - 1].focus(); }
-    else if (!event.shiftKey && document.activeElement === f[f.length - 1]) { event.preventDefault(); f[0].focus(); }
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); }
   }
 });
 
-/* ---------- Mobile menu ---------- */
-const menuButton = document.getElementById("menu-button");
-const mobileMenu = document.getElementById("mobile-menu");
-function setMenu(open) {
-  mobileMenu.classList.toggle("hidden", !open);
-  document.getElementById("icon-open").classList.toggle("hidden", open);
-  document.getElementById("icon-close").classList.toggle("hidden", !open);
-  menuButton.setAttribute("aria-expanded", open ? "true" : "false");
-  menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-}
-menuButton.addEventListener("click", function () { setMenu(mobileMenu.classList.contains("hidden")); });
-document.querySelectorAll(".mobile-link").forEach(function (l) { l.addEventListener("click", function () { setMenu(false); }); });
-window.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && !mobileMenu.classList.contains("hidden")) { setMenu(false); menuButton.focus(); }
-});
+/* Mobile menu */
+const menuBtn = $("menu-button"), menu = $("mobile-menu");
+function setMenu(o) { menu.classList.toggle("hidden", !o); $("icon-open").classList.toggle("hidden", o); $("icon-close").classList.toggle("hidden", !o);
+  menuBtn.setAttribute("aria-expanded", o); menuBtn.setAttribute("aria-label", o ? "Close menu" : "Open menu"); }
+menuBtn.onclick = () => setMenu(menu.classList.contains("hidden"));
+document.querySelectorAll(".mobile-link").forEach(l => l.onclick = () => setMenu(false));
+window.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.classList.contains("hidden")) { setMenu(false); menuBtn.focus(); } });
 
-/* ---------- Start up ---------- */
-document.getElementById("year").textContent = new Date().getFullYear();
-renderFilters();
-renderArticles();
+$("year").textContent = new Date().getFullYear();
+renderFilters(); renderArticles(); renderPipeline();
 </script>
 </body>
 </html>
